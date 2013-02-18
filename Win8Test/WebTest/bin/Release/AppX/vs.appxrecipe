@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>WIN8PRORTMDEV</Machine>
+    <WindowsUser>Greyson</WindowsUser>
+    <SolutionConfiguration>Release|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <RegisteredManifestChecksum>E6B556D3074A0F389E18075F453E3BC875E9FF914041C48B286766C39B073B71</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>8dafc260-1e03-4adb-a07f-900a8eadb711_1.0.0.0_neutral__575jmdj33nfda</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>8dafc260-1e03-4adb-a07f-900a8eadb711_575jmdj33nfda!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>8dafc260-1e03-4adb-a07f-900a8eadb711</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=Greyson</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\dev\visual_studio\Win8Test\WebTest\bin\Release\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-02-18T05:17:24.397</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\default.html">
+      <PackagePath>default.html</PackagePath>
+      <Modified>2013-02-09T21:05:06.605</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\images\background.jpg">
+      <PackagePath>images\background.jpg</PackagePath>
+      <Modified>2013-02-07T17:21:02.284</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\images\bullet.png">
+      <PackagePath>images\bullet.png</PackagePath>
+      <Modified>2013-02-10T05:36:02.891</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\images\logo.png">
+      <PackagePath>images\logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-11-05T23:39:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\images\smalllogo.png">
+      <PackagePath>images\smalllogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-11-05T23:39:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\images\spiderman.png">
+      <PackagePath>images\spiderman.png</PackagePath>
+      <Modified>2013-02-07T17:06:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\images\splashscreen.png">
+      <PackagePath>images\splashscreen.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-11-05T23:39:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\images\storelogo.png">
+      <PackagePath>images\storelogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-11-05T23:39:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\js\Ball.js">
+      <PackagePath>js\Ball.js</PackagePath>
+      <Modified>2013-02-10T05:30:26.028</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\js\box2d.js">
+      <PackagePath>js\box2d.js</PackagePath>
+      <Modified>2013-02-07T20:47:06.972</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\js\box2dweb.js">
+      <PackagePath>js\box2dweb.js</PackagePath>
+      <Modified>2013-02-01T00:16:19.854</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\js\createjs\easeljs-0.5.0.min.js">
+      <PackagePath>js\createjs\easeljs-0.5.0.min.js</PackagePath>
+      <Modified>2013-02-01T00:17:10.986</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\js\createjs\preloadjs-0.2.0.min.js">
+      <PackagePath>js\createjs\preloadjs-0.2.0.min.js</PackagePath>
+      <Modified>2013-02-01T00:17:00.965</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\js\createjs\soundjs-0.3.0.min.js">
+      <PackagePath>js\createjs\soundjs-0.3.0.min.js</PackagePath>
+      <Modified>2013-01-30T01:41:59.681</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\js\createjs\tweenjs-0.3.0.min.js">
+      <PackagePath>js\createjs\tweenjs-0.3.0.min.js</PackagePath>
+      <Modified>2013-02-01T00:16:49.906</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\js\default.js">
+      <PackagePath>js\default.js</PackagePath>
+      <Modified>2013-02-07T21:04:04.539</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\js\Game.js">
+      <PackagePath>js\Game.js</PackagePath>
+      <Modified>2013-02-10T05:22:36.819</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\js\physics\PhysicsBoundary.js">
+      <PackagePath>js\physics\PhysicsBoundary.js</PackagePath>
+      <Modified>2013-02-08T20:22:17.795</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\js\physics\PhysicsBox.js">
+      <PackagePath>js\physics\PhysicsBox.js</PackagePath>
+      <Modified>2013-02-08T22:16:29.590</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\js\physics\PhysicsCircle.js">
+      <PackagePath>js\physics\PhysicsCircle.js</PackagePath>
+      <Modified>2013-02-08T22:54:27.938</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\js\physics\PhysicsProjectile.js">
+      <PackagePath>js\physics\PhysicsProjectile.js</PackagePath>
+      <Modified>2013-02-08T20:35:27.580</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\js\PowerBar.js">
+      <PackagePath>js\PowerBar.js</PackagePath>
+      <Modified>2013-02-10T05:38:53.524</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\css\default.css">
+      <PackagePath>css\default.css</PackagePath>
+      <Modified>2013-02-07T17:21:50.582</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\Win8Test\WebTest\bin\Release\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2013-02-10T02:08:35.376</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Microsoft.WinJS.1.0\1.0\">
+      <Name>Microsoft.WinJS.1.0</Name>
+      <Version>1.0.9200.20512</Version>
+      <Architecture>Neutral</Architecture>
+      <FrameworkIdentity>Name=Microsoft.WinJS.1.0, MinVersion=1.0.9200.20512</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Microsoft.WinJS.1.0\1.0\Microsoft.WinJS.1.0.appx</AppxLocation>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>
