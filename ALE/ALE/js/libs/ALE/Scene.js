@@ -17,7 +17,7 @@ this.box2d = this.box2d || {};
         container = new createjs.Container();
     }
 
-    p.addChild = function (child)
+    p.attachChild = function (child)
     {
         container.addChild(child);
     }

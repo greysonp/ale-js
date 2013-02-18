@@ -114,10 +114,101 @@ this.box2d = this.box2d || {};
 
         accelEntities = new Array();
 
-        //current.registerUpdateHandler(physics);
+        // update physics in tick
         //physics.setContactListener(namespace);
 
+        namespace.Hero.onNewLevel();
+        namespace.Enemy.onNewLevel();
+        namespace.Destination.onNewLevel();
+        namespace.Goodie.onNewLevel();
+        namespace.Controls.resetHUD();
+        namespace.Obstacle.onNewLevel();
 
+        ALE.configAccelerometer(false);
+        level.setVictoryDestination(1);
+        ALE._camera.setZoomFactorDirect(1);
+
+        textYouWom = "Next Level";
+        textYouLost = "Try Again";
+
+        winSound = null;
+        loseSound = null;
+        music = null;
+        background = null;
+        vertBackground = null;
+        backgroundYouWon = null;
+        backgroundYouLost = null;
+        
     }
+
+    function initPhysics()
+    {
+        console.log("ALE.Level.initPhysics()");
+    }
+
+    level.setVictoryDestination = function (howMany)
+    {
+        victoryType = DESTINATION;
+        victoryVal = howMany;
+    }
+
+    level.setVictoryEnemyCount = function (howMany)
+    {
+        victoryType = ENEMYCOUNT;
+
+        if (!howMany)
+            victoryVal = -1;
+        else
+            victoryVal = howMany;
+    }
+
+    level.setVictoryGoodies = function (howMany)
+    {
+        victoryType = GOODIECOUNT;
+        victoryVal = howMany;
+    }
+
+    level.drawPicture = function (x, y, width, height, imgName)
+    {
+        var bmp = new Bitmap(Media.getImage(imgName));
+        current.attachChild(bmp);
+    }
+
+    level.drawPictureBehindScenes(x, y, width, height, imgName)
+    {
+        console.log("ALE.Level.drawPictureBehindScenes()");
+    }
+
+    level.setBackgroundWinImage = function (imgName)
+    {
+        backgroundYouWon = imgName;
+    }
+
+    level.setBackgroundLoseImage = function (imgName)
+    {
+        backgroundYouLost = imgName;
+    }
+
+    level.makeVerticalBackgroundLayer = function (imgName, factor, x, y)
+    {
+        console.log("ALE.Level.makeVerticalBackgroundLayer()");
+    }
+
+    level.setVerticalBackgroundColor = function (red, green, blue)
+    {
+        console.log("ALE.Level.setVerticalBackgroundColor()");
+    }
+
+    level.setTimeTrigger = function (timerId, howLong)
+    {
+        console.log("ALE.Level.setTimerTrigger()");
+    }
+
+    level.setGravityMultiplier = function (multiplier)
+    {
+        _gravityMultiplier = multiplier;
+    }
+
+
 
 })(this.ALE);
