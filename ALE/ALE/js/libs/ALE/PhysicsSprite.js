@@ -34,7 +34,7 @@ this.box2d = this.box2d || {};
         if (arguments.length >= 4)
             this.init(px, py, radius, bitmap, properties);
     }
-    var p = namespace.PhysicsCircle.prototype;
+    var p = namespace.PhysicsSprite.prototype;
 
     // ========
     // THE REST

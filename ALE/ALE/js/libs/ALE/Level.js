@@ -174,7 +174,7 @@ this.box2d = this.box2d || {};
         current.attachChild(bmp);
     }
 
-    level.drawPictureBehindScenes(x, y, width, height, imgName)
+    level.drawPictureBehindScenes = function (x, y, width, height, imgName)
     {
         console.log("ALE.Level.drawPictureBehindScenes()");
     }

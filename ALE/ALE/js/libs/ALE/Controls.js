@@ -1,6 +1,6 @@
 ﻿this.ALE = this.ALE || {};
 
-(function ()
+(function (namespace)
 {
     var controls = namespace.Controls = {};
 

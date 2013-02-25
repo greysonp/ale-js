@@ -31,7 +31,7 @@ this.ALE = this.ALE || {};
         console.log("ALE.Media.registerImage()");
     }
 
-    media.registerAnimatableImage(imgName, cellColumns)
+    media.registerAnimatableImage = function (imgName, cellColumns)
     {
         console.log("ALE.Media.registerANimatableImage()");
     }
