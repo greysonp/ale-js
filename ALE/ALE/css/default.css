@@ -12,14 +12,3 @@
 
 @media screen and (-ms-view-state: fullscreen-portrait) {
 }
-
-#canvas {
-    -ms-touch-action: none;
-    position:absolute;
-}
-
-#bkg-img {
-    position: absolute;
-    width: 1366px;
-    height: 768px;
-}

@@ -1,1 +1,1 @@
-C:\dev\visual_studio\ALE\ALE\ALE.jsproj;neutral
+C:\dev\visual_studio\ale-js\ALE\ALE\ALE.jsproj;neutral
