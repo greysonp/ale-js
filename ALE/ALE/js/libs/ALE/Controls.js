@@ -4,7 +4,7 @@
 {
     var controls = namespace.Controls = {};
 
-    controls.restHUD = function ()
+    controls.resetHUD = function ()
     {
         console.log("ALE.Controls.resetHUD()");
     }

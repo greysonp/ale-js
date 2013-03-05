@@ -96,6 +96,7 @@ this.box2d = this.box2d || {};
 
     level.configure = function (width, height, initXGravity, initYGravity)
     {
+        console.log("ALE.Level.configure()");
         current = new namespace.Scene();
         gameOver = false;
         tiltVelocityOverride = false;
@@ -126,9 +127,9 @@ this.box2d = this.box2d || {};
 
         ALE.configAccelerometer(false);
         level.setVictoryDestination(1);
-        ALE._camera.setZoomFactorDirect(1);
+        //ALE._camera.setZoomFactorDirect(1);
 
-        textYouWom = "Next Level";
+        textYouWon = "Next Level";
         textYouLost = "Try Again";
 
         winSound = null;
@@ -148,6 +149,7 @@ this.box2d = this.box2d || {};
 
     level.setVictoryDestination = function (howMany)
     {
+        console.log("ALE.Level.setVictoryDestination()");
         victoryType = DESTINATION;
         victoryVal = howMany;
     }

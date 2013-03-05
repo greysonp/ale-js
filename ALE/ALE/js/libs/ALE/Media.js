@@ -9,31 +9,40 @@ this.ALE = this.ALE || {};
     
     var sounds = new Array();
     var tunes = new Array();
-    var images = new Array();
+    var images = {};
 
     media.getSound = function (soundName)
     {
-        return {};
+        if (!sounds[soundName])
+            console.error("The sound 'assets/" + soundName + "' does not exist.");
+        return sounds[soundName];
     }
 
     media.getMusic = function (musicName)
     {
-        return {};
+        if (!sounds[musicName])
+            console.error("The sound 'assets/" + musicName + "' does not exist.");
+        return tunes[musicName];
     }
 
     media.getImage = function (imgName)
     {
-        return {};
+        if (!sounds[imgName])
+            console.error("The sound 'assets/" + imgName + "' does not exist.");
+        return images[imgName];
     }
 
     media.registerImage = function (imgName)
     {
-        console.log("ALE.Media.registerImage()");
+        
+        images[imgName] = new Image();
+        images[imgName].src = "assets/" + imgName;
+        console.log("ALE.Media registered image: " + images[imgName].src);
     }
 
     media.registerAnimatableImage = function (imgName, cellColumns)
     {
-        console.log("ALE.Media.registerANimatableImage()");
+        console.log("ALE.Media.registerAnimatableImage()");
     }
 
     media.registerMusic = function (musicName)

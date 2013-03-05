@@ -19,6 +19,7 @@ this.box2d = this.box2d || {};
 
     p.attachChild = function (child)
     {
+        console.log("attached Child: " + child);
         container.addChild(child);
     }
 

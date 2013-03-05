@@ -7,3 +7,7 @@ C:\dev\visual_studio\ale-js\ALE\ALE\bld\Debug\resources.resfiles
 C:\dev\visual_studio\ale-js\ALE\ALE\bld\Debug\pri.resfiles
 C:\dev\visual_studio\ale-js\ALE\ALE\bld\Debug\LanguageQualifiers.txt
 C:\dev\visual_studio\ale-js\ALE\ALE\bld\Debug\ProjectArchitectures.txt
+C:\dev\visual_studio\ale-js\ALE\ALE\bld\Debug\priconfig.xml.intermediate
+C:\dev\visual_studio\ale-js\ALE\ALE\bld\Debug\layout.resfiles.intermediate
+C:\dev\visual_studio\ale-js\ALE\ALE\bld\Debug\resources.resfiles.intermediate
+C:\dev\visual_studio\ale-js\ALE\ALE\bld\Debug\pri.resfiles.intermediate
