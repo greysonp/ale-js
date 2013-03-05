@@ -9,7 +9,7 @@ this.ALE = this.ALE || {};
     
     var sounds = new Array();
     var tunes = new Array();
-    var images = {};
+    var images = new Array();
 
     media.getSound = function (soundName)
     {
@@ -20,15 +20,15 @@ this.ALE = this.ALE || {};
 
     media.getMusic = function (musicName)
     {
-        if (!sounds[musicName])
-            console.error("The sound 'assets/" + musicName + "' does not exist.");
+        if (!tunes[musicName])
+            console.error("The song 'assets/" + musicName + "' does not exist.");
         return tunes[musicName];
     }
 
     media.getImage = function (imgName)
     {
-        if (!sounds[imgName])
-            console.error("The sound 'assets/" + imgName + "' does not exist.");
+        if (!images[imgName])
+            console.error("The image 'assets/" + imgName + "' does not exist.");
         return images[imgName];
     }
 

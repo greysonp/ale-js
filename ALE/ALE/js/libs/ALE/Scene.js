@@ -23,4 +23,9 @@ this.box2d = this.box2d || {};
         container.addChild(child);
     }
 
+    p.getContainer = function ()
+    {
+        return container;
+    }
+
 })(this.ALE);

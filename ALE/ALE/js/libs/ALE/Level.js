@@ -11,7 +11,7 @@ this.box2d = this.box2d || {};
     var ENEMYCOUNT = 2;
 
     // Fields
-    var current = {};
+    level.current = {};
     var winSound = {};
     var loseSound = {};
     var music = {};
@@ -97,7 +97,11 @@ this.box2d = this.box2d || {};
     level.configure = function (width, height, initXGravity, initYGravity)
     {
         console.log("ALE.Level.configure()");
-        current = new namespace.Scene();
+
+        // Initializing scene
+        level.current = new namespace.Scene();
+        namespace.stage.addChild(level.current.getContainer());
+
         gameOver = false;
         tiltVelocityOverride = false;
         _xGravityMax = 0;
@@ -111,7 +115,7 @@ this.box2d = this.box2d || {};
         //ALE._camera.setBoundsEnabled(true);
         //ALE.self()._camera.setBounds(0, 0, width, height);
 
-        initPhysics();
+        initPhysics(initXGravity, initYGravity);
 
         accelEntities = new Array();
 
@@ -142,9 +146,10 @@ this.box2d = this.box2d || {};
         
     }
 
-    function initPhysics()
+    function initPhysics(initXGravity, initYGravity)
     {
         console.log("ALE.Level.initPhysics()");
+        box2d.world = new box2d.b2World(new box2d.b2Vec2(initXGravity, initYGravity), true);
     }
 
     level.setVictoryDestination = function (howMany)

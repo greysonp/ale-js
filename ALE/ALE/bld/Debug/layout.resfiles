@@ -43,7 +43,6 @@ js\libs\ALE\Hero.js
 js\libs\ALE\Level.js
 js\libs\ALE\Media.js
 js\libs\ALE\Obstacle.js
-js\libs\ALE\PhysicsBox.js
 js\libs\ALE\PhysicsSprite.js
 js\libs\ALE\Scene.js
 js\libs\box2d\box2d.js

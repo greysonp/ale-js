@@ -98,7 +98,6 @@
     <Content Include="js\libs\ALE\Level.js" />
     <Content Include="js\libs\ALE\Media.js" />
     <Content Include="js\libs\ALE\Obstacle.js" />
-    <Content Include="js\libs\ALE\PhysicsBox.js" />
     <Content Include="js\libs\ALE\PhysicsSprite.js" />
     <Content Include="js\libs\ALE\Scene.js" />
     <Content Include="js\libs\box2d\box2d.js" />
