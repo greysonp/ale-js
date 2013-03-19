@@ -3,6 +3,7 @@
 (function (namespace)
 {
     var dest = namespace.Destination = {};
+    var destinations = new Array();
 
     dest.onNewLevel = function ()
     {
@@ -12,12 +13,32 @@
     dest.makeAsStationary = function (x, y, width, height, imgName, capacity, activationScore)
     {
         console.log("ALE.Destination.makeAsStationary()");
-        return new DestinationPrivate(x, y, width, height, imgName, capacity, activationScore);
-    }
+        var d = new dest.DestinationPrivate(x, y, width, height, imgName, capacity, activationScore);
+        d.setCirclePhysics(1, 0, 0, ALE.PhysicsSprite.BODY_STATIC);
+        namespace.Level.current.attachChild(d.sprite);
+        destinations.push(d);
+        return d;
+    };
 
-    function DestinationPrivate(x, y, width, height, imgName, capactiy, activationScore)
+    (function (namespace)
     {
-        console.log("ALE.Destination.DestinationPrivate()");
-    }
+        namespace.DestinationPrivate = function (x, y, width, height, imgName, capacity, activationScore)
+        {
+            this.init(x, y, width, height, imgName, capacity, activationScore);
+        }
+        var p = namespace.DestinationPrivate.prototype = new ALE.PhysicsSprite();
+
+        p.capacity = 0;
+        p.activationScore = 0;
+
+        p.PhysicsSprite_init = p.init;
+        p.init = function (x, y, width, height, imgName, capacity, activationScore)
+        {
+            p.PhysicsSprite_init.call(this, x, y, width, height, imgName, ALE.PhysicsSprite.TYPE_DESTINATION);
+            p.capacity = capacity;
+            p.activationScore = activationScore;
+        }
+
+    })(namespace.Destination);
 
 })(this.ALE);

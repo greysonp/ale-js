@@ -14,38 +14,33 @@
         console.log("ALE.Hero.onNewLevel()");
     }
 
-    hero.makeAsMoveable = function(x, y, width, height, imgName, density, elasticity, friction)
+    hero.makeAsMoveable = function (x, y, width, height, imgName, density, elasticity, friction)
     {
         console.log("ALE.Hero.makeAsMoveable()");
-        var h = new HeroPrivate(x, y, width, height, imgName, density, elasticity, friction);
+        var h = new hero.HeroPrivate(x, y, width, height, imgName, density, elasticity, friction);
+        h.setCirclePhysics(density, elasticity, friction, ALE.PhysicsSprite.BODY_DYNAMIC);
         namespace.Level.current.attachChild(h.sprite);
         heroes.push(h);
 
         lastHero = h;
 
         return h;
-    }
+    };
 
-    function HeroPrivate(x, y, width, height, imgName, density, elasticity, friction)
+    (function (namespace)
     {
-        var p = this.prototype = new namespace.PhysicsSprite(x, y, width, height, imgName, namespace.PhysicsSprite.TYPE_HERO);
-
-        // ==============
-        // Constructor
-        // ==============
-
-        p.setCirclePhysics(density, elasticity, friction, p.BODY_DYNAMIC);
-        p.init.call(this, x, y, width, height, imgName, p.TYPE_HERO);
-
-        // ===========
-        // Methods
-        // ===========
-
-        this.setMoveByTilting = function ()
+        namespace.HeroPrivate = function (x, y, width, height, imgName, density, elasticity, friction)
         {
-            console.log("ALE.Hero.HeroPrivate.setMoveByTilting()");
+            this.init(x, y, width, height, imgName, density, elasticity, friction);
         }
-    }
+        var p = namespace.HeroPrivate.prototype = new ALE.PhysicsSprite();
 
+        p.PhysicsSprite_init = p.init;
+        p.init = function (x, y, width, height, imgName, density, elasticity, friction)
+        {
+            p.PhysicsSprite_init.call(this, x, y, width, height, imgName, ALE.PhysicsSprite.TYPE_HERO);
+        }
+
+    })(namespace.Hero);
 
 })(this.ALE);

@@ -29,7 +29,7 @@ this.box2d = this.box2d || {};
     var backgroundScrollFactor = 1;
 
     var physics = {};
-    var accelEntities = new Array();
+    level.accelEntities = new Array();
 
     var backgroundYouWon = "";
     var backgroundYouLost = "";
@@ -39,7 +39,7 @@ this.box2d = this.box2d || {};
     var gameOver = false;
 
     var tiltVelocityOverride = false;
-    var _gravityMultiplier = 0;
+    var _gravityMultiplier = 1;
 
     level.setWinText = function (text)
     {
@@ -91,7 +91,8 @@ this.box2d = this.box2d || {};
 
     level.enableTilt = function (xGravityMax, yGravityMax)
     {
-
+        _xGravityMax = xGravityMax;
+        _yGravityMax = yGravityMax;
     }
 
     level.configure = function (width, height, initXGravity, initYGravity)
@@ -143,7 +144,6 @@ this.box2d = this.box2d || {};
         vertBackground = null;
         backgroundYouWon = null;
         backgroundYouLost = null;
-        
     }
 
     function initPhysics(initXGravity, initYGravity)
@@ -216,6 +216,100 @@ this.box2d = this.box2d || {};
         _gravityMultiplier = multiplier;
     }
 
+    var accelerometer;
+    var intervalId = 0;
+    var getReadingInterval = 0;
+    var accelInit = false;
+
+    level.initAccelerometer = function()
+    {
+        if (accelInit) return;
+
+        accelerometer = Windows.Devices.Sensors.Accelerometer.getDefault();
+        if (accelerometer)
+        {
+            var minReportingInterval = accelerometer.minimumReportInterval;
+            var idealInterval = (1 / namespace.FPS_TARGET) * 1000;
+            var reportInterval = minReportingInterval > 16 ? minReportingInterval : 16;
+            accelerometer.reportInterval = reportInterval;
+            getReadingInterval = reportInterval * 2;
+            accelerometer.addEventListener("readingchanged", onAccelerationChanged);
+            accelInit = true;
+        }
+        else
+        {
+            console.error("No accelerometer found.");
+        }
+    }
+
+    function onAccelerationChanged(e)
+    {
+        // Get reading
+        var reading = e.reading;
+        var gx = reading.accelerationX.toFixed(3) * _gravityMultiplier;
+        var gy = reading.accelerationY.toFixed(3) * _gravityMultiplier;
+        gy *= -1; // #ale-js specific! Windows accelerometer is reversed
+
+        // Keep in bounds (-gravityMax, gravityMax)
+        gx = Math.min(gx, _xGravityMax);
+        gx = Math.max(gx, -_xGravityMax);
+
+        gy = Math.min(gy, _yGravityMax);
+        gy = Math.max(gy, -_yGravityMax);
+
+        // we're allowed to just set velocity
+        if (tiltVelocityOverride)
+        {
+            // we need to be careful here... if we have a zero for the X or Y
+            // gravityMax, then in that dimension we should not just set linear
+            // velocity to the value we compute, or jumping won't work
+
+            // we're going to assume that you wouldn't have xGravityMax == yGravityMax == 0
+            if (_xGravityMax == 0)
+            {
+                for (var i = 0; i < level.accelEntities.length; i++)
+                {
+                    var o = level.accelEntities[i].sprite.body;
+                    if (o.isActive)
+                        o.SetLinearVelocity(new box2d.b2Vec2(o.getLinearVelocity().x, gy));
+                }
+            }
+            else if (_yGravityMax == 0)
+            {
+                for (var i = 0; i < level.accelEntities.length; i++)
+                {
+                    var o = level.accelEntities[i].sprite.body;
+                    if (o.isActive)
+                        o.SetLinearVelocity(new box2d.b2Vec2(gx, o.getLinearVelocity().y));
+                }
+            }
+            else
+            {
+                for (var i = 0; i < level.accelEntities.length; i++)
+                {
+                    var o = level.accelEntities[i].sprite.body;
+                    if (o.isActive)
+                        o.SetLinearVelocity(new box2d.b2Vec2(gx, gy));
+                }
+            }
+        }
+        // we have to add to the velocity
+        else
+        {
+            var oac = new box2d.b2Vec2(gx, gy);
+            for (var i = 0; i < level.accelEntities.length; i++)
+            {
+                var o = level.accelEntities[i].sprite.body;
+                //if (o.isActive)
+                //{
+                //console.info(gx + " " + gy);
+                //o.SetLinearVelocity(new box2d.b2Vec2(gx, gy));
+                    o.ApplyForce(oac, o.GetWorldCenter());
+                //}
+            }
+        }
+
+    }
 
 
 })(this.ALE);

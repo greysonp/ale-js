@@ -4,7 +4,7 @@ this.createjs = this.createjs || {};
 
 (function (namespace)
 {
-    var FPS_TARGET = 30;
+    var FPS_TARGET = namespace.FPS_TARGET = 60;
     var FPS = FPS_TARGET;
 
     namespace.stage = {};
@@ -21,9 +21,6 @@ this.createjs = this.createjs || {};
         createjs.Ticker.addListener(namespace);
         createjs.Ticker.setFPS(30);
         createjs.useRAF = true;
-
-        
-        //box2d.world = new box2d.b2World(new box2d.b2Vec2(0, 0), true);
     }
 
     namespace.configAccelerometer = function (toggle)
@@ -33,8 +30,11 @@ this.createjs = this.createjs || {};
 
     namespace.tick = function (e)
     {
-        updateFramerate();
+        box2d.world.Step(1 / FPS_TARGET, 3, 3);
+        box2d.world.ClearForces();
         namespace.stage.update();
+
+        updateFramerate();
     }
 
     /**

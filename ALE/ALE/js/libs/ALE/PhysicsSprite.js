@@ -8,7 +8,8 @@ this.box2d = this.box2d || {};
     // ===========
     namespace.PhysicsSprite = function (px, py, width, height, imgName, type)
     {
-        this.init(px, py, width, height, imgName, type);
+        if (arguments.length > 1)
+            this.init(px, py, width, height, imgName, type);
     }
     var p = namespace.PhysicsSprite.prototype;
 
@@ -16,30 +17,29 @@ this.box2d = this.box2d || {};
     // =========================
     // Fields/Properties
     // =========================
+    var phys = namespace.PhysicsSprite || {};
+    phys.TYPE_UNKNOWN = 0;
+    phys.TYPE_HERO = 1;
+    phys.TYPE_ENEMY = 2;
+    phys.TYPE_GOODIE = 3;
+    phys.TYPE_PROJECTILE = 4;
+    phys.TYPE_OBSTACLE = 5;
+    phys.TYPE_SVG = 6;
+    phys.TYPE_DESTINATION = 7;
 
-    p.TYPE_UNKNOWN = 0;
-    p.TYPE_HERO = 1;
-    p.TYPE_ENEMY = 2;
-    p.TYPE_GOODIE = 3;
-    p.TYPE_PROJECTILE = 4;
-    p.TYPE_OBSTACLE = 5;
-    p.TYPE_SVG = 6;
-    p.TYPE_DESTINATION = 7;
+    phys.BODY_DYNAMIC = "dynamic";
+    phys.BODY_STATIC = "static";
+    phys.BODY_KINEMATIC = "kinematic";
 
-    p.BODY_DYNAMIC = "dynamic";
-    p.BODY_STATIC = "static";
-    p.BODY_KINEMATIC = "kinematic";
+    p.sprite = {};
+    p.isDrag = false;
 
-    var sprite = {};
-    var isDrag = false;
+    p.myType = p.TYPE_UNKNOWN;
 
-    var myType = p.TYPE_UNKNOWN;
-
-    var physBody = {};
-    var isTile = false;
-    var isRoute = false;
-    var disappearSound = {};
-    var routeVector = {};
+    p.isTilt = false;
+    p.isRoute = false;
+    p.disappearSound = {};
+    p.routeVector = {};
 
 
     // ========
@@ -82,11 +82,11 @@ this.box2d = this.box2d || {};
         bodyDef.position.y = this.sprite.y / box2d.SCALE;
 
         // Get body type
-        if (bodyType == namespace.BODY_DYNAMIC)
+        if (bodyType == phys.BODY_DYNAMIC)
             bodyDef.type = box2d.b2Body.b2_dynamicBody;
-        else if (bodyType == namespace.BODY_STATIC)
+        else if (bodyType == phys.BODY_STATIC)
             bodyDef.type = box2d.b2Body.b2_staticBody;
-        else if (bodyType == namespace.BODY_KINEMATIC)
+        else if (bodyType == phys.BODY_KINEMATIC)
             bodyDef.type = box2d.b2Body.b2_kinematicBody
 
         // Create 'em
@@ -115,11 +115,11 @@ this.box2d = this.box2d || {};
         bodyDef.position.y = py / box2d.SCALE;
 
         // Get body type
-        if (bodyType == namespace.BODY_DYNAMIC)
+        if (bodyType == phys.BODY_DYNAMIC)
             bodyDef.type = box2d.b2Body.b2_dynamicBody;
-        else if (bodyType == namespace.BODY_STATIC)
+        else if (bodyType == phys.BODY_STATIC)
             bodyDef.type = box2d.b2Body.b2_staticBody;
-        else if (bodyType == namespace.BODY_KINEMATIC)
+        else if (bodyType == phys.BODY_KINEMATIC)
             bodyDef.type = box2d.b2Body.b2_kinematicBody
 
         // Create 'em
@@ -129,6 +129,19 @@ this.box2d = this.box2d || {};
         // Now that we have a body, we can add the update loop
         this.sprite.onTick = p.tick;
     }
+
+    p.setMoveByTilting = function ()
+    {
+        if (!this.isTilt)
+        {
+            namespace.Level.initAccelerometer();
+            namespace.Level.accelEntities.push(this);
+            this.isTilt = true;
+            //physBody.getFixtureList().get(0).setSensor(false);
+        }
+    }
+
+    
 
     p.tick = function(e)
     {

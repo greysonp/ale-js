@@ -37,7 +37,7 @@ this.Game = this.Game || {};
 
             ALE.Level.enableTilt(10, 10);
 
-            var h = ALE.Hero.makeAsMoveable(40, 70, 30, 30, "greenball.png", 0, 0, 0);
+            var h = ALE.Hero.makeAsMoveable(500, 500, 30, 30, "greenball.png", 0, 0, 0);
             h.setMoveByTilting();
 
             ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 1, 0);
