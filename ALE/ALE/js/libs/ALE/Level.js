@@ -6,9 +6,9 @@ this.box2d = this.box2d || {};
     var level = namespace.Level = {};
 
     // Victory types
-    var DESTINATION = 0;
-    var GOODIECOUNT = 1;
-    var ENEMYCOUNT = 2;
+    level.DESTINATION = 0;
+    level.GOODIECOUNT = 1;
+    level.ENEMYCOUNT = 2;
 
     // Fields
     level.current = {};
@@ -270,7 +270,7 @@ this.box2d = this.box2d || {};
                 for (var i = 0; i < level.accelEntities.length; i++)
                 {
                     var o = level.accelEntities[i].sprite.body;
-                    if (o.isActive)
+                    if (o.IsActive())
                         o.SetLinearVelocity(new box2d.b2Vec2(o.getLinearVelocity().x, gy));
                 }
             }
@@ -279,7 +279,7 @@ this.box2d = this.box2d || {};
                 for (var i = 0; i < level.accelEntities.length; i++)
                 {
                     var o = level.accelEntities[i].sprite.body;
-                    if (o.isActive)
+                    if (o.IsActive())
                         o.SetLinearVelocity(new box2d.b2Vec2(gx, o.getLinearVelocity().y));
                 }
             }
@@ -288,7 +288,7 @@ this.box2d = this.box2d || {};
                 for (var i = 0; i < level.accelEntities.length; i++)
                 {
                     var o = level.accelEntities[i].sprite.body;
-                    if (o.isActive)
+                    if (o.IsActive())
                         o.SetLinearVelocity(new box2d.b2Vec2(gx, gy));
                 }
             }
@@ -300,12 +300,10 @@ this.box2d = this.box2d || {};
             for (var i = 0; i < level.accelEntities.length; i++)
             {
                 var o = level.accelEntities[i].sprite.body;
-                //if (o.isActive)
-                //{
-                //console.info(gx + " " + gy);
-                //o.SetLinearVelocity(new box2d.b2Vec2(gx, gy));
+                if (o.IsActive())
+                {
                     o.ApplyForce(oac, o.GetWorldCenter());
-                //}
+                }
             }
         }
 

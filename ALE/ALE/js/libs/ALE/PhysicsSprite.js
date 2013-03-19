@@ -58,6 +58,8 @@ this.box2d = this.box2d || {};
         this.sprite.regX = this.sprite.regY = this.sprite.image.width / 2;
         this.sprite.x = px;
         this.sprite.y = py;
+
+        p.myType = type;
     }
 
     p.setDisappearSound = function (soundName)
@@ -137,11 +139,16 @@ this.box2d = this.box2d || {};
             namespace.Level.initAccelerometer();
             namespace.Level.accelEntities.push(this);
             this.isTilt = true;
-            //physBody.getFixtureList().get(0).setSensor(false);
+            this.sprite.body.GetFixtureList().SetSensor(false);
         }
     }
 
-    
+    p.toggleCollisionEffect = function (state)
+    {
+        // If this was a sensor, we need to disable sensor, or else this entity
+        // will go right through walls
+        this.sprite.body.GetFixtureList().SetSensor(!state);
+    }
 
     p.tick = function(e)
     {
