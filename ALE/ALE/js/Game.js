@@ -40,8 +40,8 @@ this.Game = this.Game || {};
             var h = ALE.Hero.makeAsMoveable(500, 500, 30, 30, "greenball.png", 0, 0, 0);
             h.setMoveByTilting();
 
-           // ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 1, 0);
-            //ALE.Level.setVictoryDestination(1);
+           ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 1, 0);
+           ALE.Level.setVictoryDestination(1);
         }
     }
 

@@ -1,8 +1,8 @@
 ﻿this.ALE = this.ALE || {};
 
-(function (namespace)
+(function ()
 {
-    var dest = namespace.Destination = {};
+    var dest = ALE.Destination = {};
     var destinations = new Array();
 
     dest.arrivals = 0;
@@ -15,47 +15,46 @@
     dest.makeAsStationary = function (x, y, width, height, imgName, capacity, activationScore)
     {
         console.log("ALE.Destination.makeAsStationary()");
-        var d = new dest.DestinationPrivate(x, y, width, height, imgName, capacity, activationScore);
+        var d = new dest._Destination(x, y, width, height, imgName, capacity, activationScore);
         d.setCirclePhysics(1, 0, 0, ALE.PhysicsSprite.BODY_STATIC);
-        namespace.Level.current.attachChild(d.sprite);
+        ALE.Level.current.attachChild(d.sprite);
         destinations.push(d);
         return d;
     };
 
-    //(function (namespace)
-    //{
-    //    // ===================
-    //    // Constructor
-    //    // ===================
-    //    namespace.DestinationPrivate = function (x, y, width, height, imgName, capacity, activationScore)
-    //    {
-    //        this.init(x, y, width, height, imgName, capacity, activationScore);
-    //    }
-    //    var p = namespace.DestinationPrivate.prototype = new ALE.PhysicsSprite();
+    (function (namespace)
+    {
+        var _Destination = Class.design('ALE.Destination._Destination',
+        {
+            Extends: ALE.PhysicsSprite,
 
-    //    // ===================
-    //    // Fields
-    //    // ===================
-    //    p._capacity = 0;
-    //    p._activationScore = 0;
-    //    p._holding = 0;
+            // ===================
+            // Constructor
+            // ===================
+            initialize: function (x, y, width, height, imgName, capacity, activationScore)
+            {
+                _Destination.Super.call(this, x, y, width, height, imgName, ALE.PhysicsSprite.TYPE_DESTINATION);
+                // ===================
+                // Instance Variables
+                // ===================
+                this._capacity = 0;
+                this._activationScore = 0;
+                this._holding = 0;
 
-    //    // ===================
-    //    // Methods
-    //    // ===================
-    //    p.PhysicsSprite_init = p.init;
-    //    p.init = function (x, y, width, height, imgName, capacity, activationScore)
-    //    {
-    //        p.PhysicsSprite_init.call(this, x, y, width, height, imgName, ALE.PhysicsSprite.TYPE_DESTINATION);
-    //        p.capacity = capacity;
-    //        p._activationScore = activationScore;
-    //    }
+                // ===================
+                // Instantiation
+                // ==================
+                this.capacity = capacity;
+                this._activationScore = activationScore;
+            },
 
-    //    p.onArrive = function ()
-    //    {
-    //        console.log("ALE.Destination.DestinationPrivate.onArrive()");
-    //    }
-
-    //})(namespace.Destination);
-
-})(this.ALE);
+            // ===================
+            // Methods
+            // ===================
+            onArrive: function ()
+            {
+                console.log("ALE.Destination._Destination.onArrive()");
+            }
+        })
+    })();
+})();
