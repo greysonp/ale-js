@@ -51,7 +51,7 @@
             {
                 if (other.myType == ALE.PhysicsSprite.TYPE_DESTINATION)
                 {
-                    onCollideWithDestination(other);
+                    this.onCollideWithDestination(other);
                 }
             },
 
@@ -70,7 +70,7 @@
                     this.sprite.body.SetActive(false);
 
                     // vanish quietly, since we want the destination sound to play
-                    p.vanish(true);
+                    this.vanish(true);
 
                     if ((ALE.Level.victoryType == ALE.Level.VICTORY))
                     {

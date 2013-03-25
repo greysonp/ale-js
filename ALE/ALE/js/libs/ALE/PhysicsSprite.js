@@ -34,6 +34,7 @@ this.box2d = this.box2d || {};
             // ===================
             this.sprite = {};
             this.isDrag = false;
+            this.userData = {};
 
             this.myType = ALE.PhysicsSprite.TYPE_UNKNOWN;
 
@@ -49,14 +50,19 @@ this.box2d = this.box2d || {};
              * ready to go immediately because all the images here are preloaded by Media.
              */
 
+            // Initializae
+            this.width = width;
+            this.height = height;
+
             // Texture
             this.sprite = new createjs.Bitmap(ALE.Media.getImage(imgName));
-            console.log(arguments.length);
-            this.sprite.regX = this.sprite.regY = this.sprite.image.width / 2;
+            this.sprite.regX = this.sprite.regY = this.width / 2;
             this.sprite.x = px;
             this.sprite.y = py;
 
             this.myType = type;
+
+            this.userData = { "type": this.myType, "obj": this };
         },
 
         // ==================
@@ -76,7 +82,8 @@ this.box2d = this.box2d || {};
             fixDef.density = density;
             fixDef.friction = friction;
             fixDef.restitution = elasticity;
-            fixDef.shape = new box2d.b2CircleShape(this.sprite.image.width/2 / box2d.SCALE);
+            console.log("Width: " + this.width);
+            fixDef.shape = new box2d.b2CircleShape(this.width/2 / box2d.SCALE);
 
             // Physics Body
             var bodyDef = new box2d.b2BodyDef();
@@ -94,6 +101,9 @@ this.box2d = this.box2d || {};
             // Create 'em
             this.sprite.body = box2d.world.CreateBody(bodyDef);
             this.sprite.body.CreateFixture(fixDef);
+
+            // Add user data
+            this.sprite.body.SetUserData(this.userData);
 
             // Now that we have a body, we can add the update loop
             this.sprite.onTick = this.tick;
@@ -127,6 +137,9 @@ this.box2d = this.box2d || {};
             // Create 'em
             this.sprite.body = box2d.world.CreateBody(bodyDef);
             this.sprite.body.CreateFixture(fixDef);
+
+            // Add user data
+            this.sprite.body.SetUserData(this.userData);
 
             // Now that we have a body, we can add the update loop
             this.sprite.onTick = this.tick;

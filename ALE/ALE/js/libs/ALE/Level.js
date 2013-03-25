@@ -12,6 +12,7 @@ this.box2d = this.box2d || {};
 
     // Fields
     level.current = {};
+    level.contactListener = {};
     var winSound = {};
     var loseSound = {};
     var music = {};
@@ -120,9 +121,12 @@ this.box2d = this.box2d || {};
 
         accelEntities = new Array();
 
-        // update physics in tick
-        //physics.setContactListener(namespace);
+        // Our contact listener
+        level.contactListener = new box2d.b2ContactListener();
+        level.contactListener.BeginContact = ALE.beginContact;
+        box2d.world.SetContactListener(level.contactListener);
 
+        // Level initialization
         namespace.Hero.onNewLevel();
         namespace.Enemy.onNewLevel();
         namespace.Destination.onNewLevel();

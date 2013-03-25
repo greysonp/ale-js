@@ -1,40 +1,65 @@
 ﻿this.ALE = this.ALE || {};
+this.Game = this.Game || {};
 this.box2d = this.box2d || {};
 this.createjs = this.createjs || {};
 
-(function (namespace)
+(function ()
 {
-    var FPS_TARGET = namespace.FPS_TARGET = 60;
+    var FPS_TARGET = ALE.FPS_TARGET = 60;
     var FPS = FPS_TARGET;
 
-    namespace.stage = {};
-    namespace._camera = {};
+    ALE.stage = {};
+    ALE._camera = {};
 
 
-    namespace.init = function ()
+    ALE.init = function ()
     {
         console.log("ALE.init()");
 
         // He we'll initialize the stage and set the FPS to 30
-        namespace.stage = new createjs.Stage("canvas");
-        createjs.Touch.enable(namespace.stage);
-        createjs.Ticker.addListener(namespace);
+        ALE.stage = new createjs.Stage("canvas");
+        createjs.Touch.enable(ALE.stage);
+        createjs.Ticker.addListener(ALE);
         createjs.Ticker.setFPS(30);
         createjs.useRAF = true;
+
+        initGame();
     }
 
-    namespace.configAccelerometer = function (toggle)
+    function initGame()
+    {
+        this.Game.nameResources();
+
+        // TODO: Shouldn't have to call this.
+        this.Game.configureLevel(1);
+    }
+
+    ALE.configAccelerometer = function (toggle)
     {
         console.log("ALE.configAccelerometer()");
     }
 
-    namespace.tick = function (e)
+    ALE.tick = function (e)
     {
         box2d.world.Step(1 / FPS_TARGET, 3, 3);
         box2d.world.ClearForces();
-        namespace.stage.update();
+        ALE.stage.update();
 
         updateFramerate();
+    }
+
+    ALE.beginContact = function (contact)
+    {
+        var dataA = contact.GetFixtureA().GetBody().GetUserData();
+        var dataB = contact.GetFixtureB().GetBody().GetUserData();
+
+        if (!(dataA.obj instanceof ALE.PhysicsSprite) || !(dataB.obj instanceof ALE.PhysicsSprite))
+            return;
+
+        if (dataA.type > dataB.type)
+            dataB.obj.onCollide(dataA.obj);
+        else
+            dataA.obj.onCollide(dataB.obj);
     }
 
     /**

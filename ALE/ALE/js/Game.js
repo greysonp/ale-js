@@ -1,23 +1,9 @@
 ﻿this.ALE = this.ALE || {};
 this.Game = this.Game || {};
 
-(function (namespace)
+(function ()
 {
-    namespace.init = function ()
-    {
-        ALE.init();
-
-        nameResources();
-
-        // TODO: Shouldn't have to call this.
-        configureLevel(1);
-    }
-
-    // =======================================
-    // User Editable
-    // =======================================
-
-    function nameResources()
+    Game.nameResources = function()
     {
         console.log("nameResources()");
 
@@ -25,7 +11,7 @@ this.Game = this.Game || {};
         ALE.Media.registerImage("mustardball.png");
     }
 
-    function configureLevel(whichLevel)
+    Game.configureLevel = function(whichLevel)
     {
         console.log("configureLevel()");
 
@@ -37,13 +23,13 @@ this.Game = this.Game || {};
 
             ALE.Level.enableTilt(10, 10);
 
-            var h = ALE.Hero.makeAsMoveable(500, 500, 30, 30, "greenball.png", 0, 0, 0);
+            var h = ALE.Hero.makeAsMoveable(200, 200, 152, 152, "greenball.png", 0, 0, 0);
             h.setMoveByTilting();
 
-           ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 1, 0);
+           ALE.Destination.makeAsStationary(200, 500, 152, 152, "mustardball.png", 1, 0);
            ALE.Level.setVictoryDestination(1);
         }
     }
 
 
-})(this.Game);
+})();
