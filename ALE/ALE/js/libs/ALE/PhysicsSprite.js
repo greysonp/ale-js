@@ -29,21 +29,9 @@ this.box2d = this.box2d || {};
         // =====================
         initialize: function (px, py, width, height, imgName, type)
         {
-            /**
-             * This is literally just getting our image prepared. 
-             * Physics are handles in the "setBlahBlahPhysics" methods. The bitmap should be
-             * ready to go immediately because all the images here are preloaded by Media.
-             */
-
-            // Texture
-            this.sprite = new createjs.Bitmap(ALE.Media.getImage(imgName));
-            this.sprite.regX = this.sprite.regY = this.sprite.image.width / 2;
-            this.sprite.x = px;
-            this.sprite.y = py;
-
-            p.myType = type;
-
+            // ===================
             // INSTANCE VARIABLES
+            // ===================
             this.sprite = {};
             this.isDrag = false;
 
@@ -53,6 +41,22 @@ this.box2d = this.box2d || {};
             this.isRoute = false;
             this.disappearSound = {};
             this.routeVector = {};
+            // ====================
+
+            /**
+             * This is literally just getting our image prepared. 
+             * Physics are handles in the "setBlahBlahPhysics" methods. The bitmap should be
+             * ready to go immediately because all the images here are preloaded by Media.
+             */
+
+            // Texture
+            this.sprite = new createjs.Bitmap(ALE.Media.getImage(imgName));
+            console.log(arguments.length);
+            this.sprite.regX = this.sprite.regY = this.sprite.image.width / 2;
+            this.sprite.x = px;
+            this.sprite.y = py;
+
+            this.myType = type;
         },
 
         // ==================
@@ -92,7 +96,7 @@ this.box2d = this.box2d || {};
             this.sprite.body.CreateFixture(fixDef);
 
             // Now that we have a body, we can add the update loop
-            this.sprite.onTick = p.tick;
+            this.sprite.onTick = this.tick;
         },
 
         setBoxPhysics: function (density, elasticity, friction, bodyType, isBullet, isSensor, canRotate)
@@ -148,10 +152,12 @@ this.box2d = this.box2d || {};
 
         tick: function(e)
         {
+            // Note: 'this' refers to 'this.sprite'
+
             // Set texture position
-            this.sprite.x = this.sprite.body.GetPosition().x * box2d.SCALE;
-            this.sprite.y = this.sprite.body.GetPosition().y * box2d.SCALE;
-            this.sprite.rotation = this.sprite.body.GetAngle() * (180 / Math.PI);
+            this.x = this.body.GetPosition().x * box2d.SCALE;
+            this.y = this.body.GetPosition().y * box2d.SCALE;
+            this.rotation = this.body.GetAngle() * (180 / Math.PI);
         }
     })
 

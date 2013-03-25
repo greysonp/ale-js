@@ -15,7 +15,7 @@ this.box2d = this.box2d || {};
     var winSound = {};
     var loseSound = {};
     var music = {};
-    var victoryType = DESTINATION;
+    var victoryType = level.DESTINATION;
     var victoryVal = 0;
 
     var _xGravityMax = 0;
@@ -155,7 +155,7 @@ this.box2d = this.box2d || {};
     level.setVictoryDestination = function (howMany)
     {
         console.log("ALE.Level.setVictoryDestination()");
-        victoryType = DESTINATION;
+        victoryType = level.DESTINATION;
         victoryVal = howMany;
     }
 

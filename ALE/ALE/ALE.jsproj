@@ -102,6 +102,7 @@
     <Content Include="js\libs\ALE\Scene.js" />
     <Content Include="js\libs\box2d\box2d.js" />
     <Content Include="js\libs\box2d\box2dweb.js" />
+    <Content Include="js\libs\class.min.js" />
     <Content Include="js\libs\createjs\easeljs-0.5.0.min.js" />
     <Content Include="js\libs\createjs\preloadjs-0.2.0.min.js" />
     <Content Include="js\libs\createjs\soundjs-0.3.0.min.js" />

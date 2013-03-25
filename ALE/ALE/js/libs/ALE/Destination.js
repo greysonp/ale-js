@@ -22,40 +22,40 @@
         return d;
     };
 
-    (function (namespace)
-    {
-        // ===================
-        // Constructor
-        // ===================
-        namespace.DestinationPrivate = function (x, y, width, height, imgName, capacity, activationScore)
-        {
-            this.init(x, y, width, height, imgName, capacity, activationScore);
-        }
-        var p = namespace.DestinationPrivate.prototype = new ALE.PhysicsSprite();
+    //(function (namespace)
+    //{
+    //    // ===================
+    //    // Constructor
+    //    // ===================
+    //    namespace.DestinationPrivate = function (x, y, width, height, imgName, capacity, activationScore)
+    //    {
+    //        this.init(x, y, width, height, imgName, capacity, activationScore);
+    //    }
+    //    var p = namespace.DestinationPrivate.prototype = new ALE.PhysicsSprite();
 
-        // ===================
-        // Fields
-        // ===================
-        p._capacity = 0;
-        p._activationScore = 0;
-        p._holding = 0;
+    //    // ===================
+    //    // Fields
+    //    // ===================
+    //    p._capacity = 0;
+    //    p._activationScore = 0;
+    //    p._holding = 0;
 
-        // ===================
-        // Methods
-        // ===================
-        p.PhysicsSprite_init = p.init;
-        p.init = function (x, y, width, height, imgName, capacity, activationScore)
-        {
-            p.PhysicsSprite_init.call(this, x, y, width, height, imgName, ALE.PhysicsSprite.TYPE_DESTINATION);
-            p.capacity = capacity;
-            p._activationScore = activationScore;
-        }
+    //    // ===================
+    //    // Methods
+    //    // ===================
+    //    p.PhysicsSprite_init = p.init;
+    //    p.init = function (x, y, width, height, imgName, capacity, activationScore)
+    //    {
+    //        p.PhysicsSprite_init.call(this, x, y, width, height, imgName, ALE.PhysicsSprite.TYPE_DESTINATION);
+    //        p.capacity = capacity;
+    //        p._activationScore = activationScore;
+    //    }
 
-        p.onArrive = function ()
-        {
-            console.log("ALE.Destination.DestinationPrivate.onArrive()");
-        }
+    //    p.onArrive = function ()
+    //    {
+    //        console.log("ALE.Destination.DestinationPrivate.onArrive()");
+    //    }
 
-    })(namespace.Destination);
+    //})(namespace.Destination);
 
 })(this.ALE);
