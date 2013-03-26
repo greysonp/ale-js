@@ -6,7 +6,6 @@ this.ALE = this.ALE || {};
     var media = namespace.Media = {};
     // ==================================
     
-    
     var sounds = new Array();
     var images = new Array();
 
@@ -54,11 +53,35 @@ this.ALE = this.ALE || {};
         console.log("ALE.Media.registerSound()");
     }
 
-    media.loadAll = function(callback)
+    media.loadAll = function (callback)
     {
-        var queue = new createjs.LoadQueue();
+        // Initialize our queue
+        var queue = new createjs.LoadQueue(true);
+        queue.installPlugin(createjs.Sound);
+        var manifest = makeManifest(images).concat(makeManifest(sounds));
+        queue.loadManifest(manifest);
+
+        // When our queue is done, clean up and call our callback
+        queue.addEventListener("complete", callback);
     }
 
+    function getKeys(a)
+    {
+        var keys = [];
+        for (var key in a)
+            if (a.hasOwnProperty(key))
+                keys.push(key);
+        return keys;
+    }
+
+    function makeManifest(a)
+    {
+        var keys = getKeys(a);
+        var manifest = new Array();
+        for (var i = 0; i < keys.length; i++)
+            manifest.push({ id: keys[i], src: a[keys[i]].src });
+        return manifest;
+    }
 
 })(this.ALE);
 

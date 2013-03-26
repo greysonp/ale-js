@@ -19,7 +19,6 @@ this.createjs = this.createjs || {};
         // He we'll initialize the stage and set the FPS to 30
         ALE.stage = new createjs.Stage("canvas");
         createjs.Touch.enable(ALE.stage);
-        createjs.Ticker.addListener(ALE);
         createjs.Ticker.setFPS(30);
         createjs.useRAF = true;
 
@@ -28,10 +27,16 @@ this.createjs = this.createjs || {};
 
     function initGame()
     {
-        this.Game.nameResources();
+        Game.nameResources();
+        ALE.Media.loadAll(function ()
+        {
+            // Start off the game
+            Game.configureLevel(1);
 
-        // TODO: Shouldn't have to call this.
-        this.Game.configureLevel(1);
+            // Kick-off the Ticker now that the physics world is instantiated
+            // (it's instantiated in the Level class)
+            createjs.Ticker.addListener(ALE);
+        });
     }
 
     ALE.configAccelerometer = function (toggle)

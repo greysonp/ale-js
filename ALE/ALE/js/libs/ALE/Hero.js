@@ -59,7 +59,7 @@
             {
                 // only do something if the hero has enough goodies and there's
                 // room in the destination
-                var currentGoodieScore = Goodie.goodiescollected;
+                var currentGoodieScore = ALE.Goodie.goodiescollected;
                 if ((currentGoodieScore >= d._activationScore) && (d._holding < d._capacity))
                 {
                     // hide the hero, disable the hero's motion, and check if the
