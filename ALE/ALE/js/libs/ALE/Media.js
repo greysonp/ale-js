@@ -8,7 +8,6 @@ this.ALE = this.ALE || {};
     
     
     var sounds = new Array();
-    var tunes = new Array();
     var images = new Array();
 
     media.getSound = function (soundName)
@@ -20,9 +19,9 @@ this.ALE = this.ALE || {};
 
     media.getMusic = function (musicName)
     {
-        if (!tunes[musicName])
+        if (!sounds[musicName])
             console.error("The song 'assets/" + musicName + "' does not exist.");
-        return tunes[musicName];
+        return sounds[musicName];
     }
 
     media.getImage = function (imgName)
@@ -34,7 +33,6 @@ this.ALE = this.ALE || {};
 
     media.registerImage = function (imgName)
     {
-        
         images[imgName] = new Image();
         images[imgName].src = "assets/" + imgName;
         console.log("ALE.Media registered image: " + images[imgName].src);
@@ -43,6 +41,7 @@ this.ALE = this.ALE || {};
     media.registerAnimatableImage = function (imgName, cellColumns)
     {
         console.log("ALE.Media.registerAnimatableImage()");
+        media.registerImage(imgName);
     }
 
     media.registerMusic = function (musicName)
@@ -53,6 +52,11 @@ this.ALE = this.ALE || {};
     media.registerSound = function (soundName)
     {
         console.log("ALE.Media.registerSound()");
+    }
+
+    media.loadAll = function(callback)
+    {
+        var queue = new createjs.LoadQueue();
     }
 
 
