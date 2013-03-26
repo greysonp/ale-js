@@ -55,7 +55,7 @@
                 }
             },
 
-            onCollideWithDestination: function ()
+            onCollideWithDestination: function (d)
             {
                 // only do something if the hero has enough goodies and there's
                 // room in the destination
@@ -71,10 +71,10 @@
 
                     // vanish quietly, since we want the destination sound to play
                     this.vanish(true);
-
-                    if ((ALE.Level.victoryType == ALE.Level.VICTORY))
+                    if ((ALE.Level.victoryType == ALE.Level.VICTORY.DESTINATION) &&
+                        (ALE.Destination.arrivals >= ALE.Level.victoryVal))
                     {
-                        // Do something
+                        console.log("YOUR WINNER!");
                     }
                 }
             }

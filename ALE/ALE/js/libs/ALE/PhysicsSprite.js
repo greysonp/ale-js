@@ -158,9 +158,27 @@ this.box2d = this.box2d || {};
 
         toggleCollisionEffect: function (state)
         {
+            /// <signature>
+            /// <summary>Blah blah blah</summary>
+            /// <param name="state">paramsdlkd</param>
+            /// </signature>
+
+
             // If this was a sensor, we need to disable sensor, or else this entity
             // will go right through walls
             this.sprite.body.GetFixtureList().SetSensor(!state);
+        },
+
+        vanish: function(quiet)
+        {
+            /// <signature>
+            /// <summary>Makes the sprite disappear</summary>
+            /// <param name="quiet">If 'true,' the disappear sound will not be played.</param>
+            /// </signature>
+
+            this.sprite.visible = false;
+            // Play disappearing animation
+            // Play sound if !quiet
         },
 
         tick: function(e)

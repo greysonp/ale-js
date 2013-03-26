@@ -6,9 +6,7 @@ this.box2d = this.box2d || {};
     var level = namespace.Level = {};
 
     // Victory types
-    level.DESTINATION = 0;
-    level.GOODIECOUNT = 1;
-    level.ENEMYCOUNT = 2;
+    level.VICTORY = { DESTINATION: 0, GOODIECOUNT: 1, ENEMYCOUNT: 2 };
 
     // Fields
     level.current = {};
@@ -16,8 +14,8 @@ this.box2d = this.box2d || {};
     var winSound = {};
     var loseSound = {};
     var music = {};
-    var victoryType = level.DESTINATION;
-    var victoryVal = 0;
+    level.victoryType = level.VICTORY.DESTINATION;
+    level.victoryVal = 0;
 
     var _xGravityMax = 0;
     var _yGravityMax = 0;
@@ -158,25 +156,24 @@ this.box2d = this.box2d || {};
 
     level.setVictoryDestination = function (howMany)
     {
-        console.log("ALE.Level.setVictoryDestination()");
-        victoryType = level.DESTINATION;
-        victoryVal = howMany;
+        level.victoryType = level.VICTORY.DESTINATION;
+        level.victoryVal = howMany;
     }
 
     level.setVictoryEnemyCount = function (howMany)
     {
-        victoryType = ENEMYCOUNT;
+        level.victoryType = level.VICTORY.ENEMYCOUNT;
 
         if (!howMany)
-            victoryVal = -1;
+            level.victoryVal = -1;
         else
-            victoryVal = howMany;
+            vlevel.ictoryVal = howMany;
     }
 
     level.setVictoryGoodies = function (howMany)
     {
-        victoryType = GOODIECOUNT;
-        victoryVal = howMany;
+        level.victoryType = level.VICTORY.GOODIECOUNT;
+        level.victoryVal = howMany;
     }
 
     level.drawPicture = function (x, y, width, height, imgName)
