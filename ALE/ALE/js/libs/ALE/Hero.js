@@ -74,7 +74,7 @@
                     if ((ALE.Level.victoryType == ALE.Level.VICTORY.DESTINATION) &&
                         (ALE.Destination.arrivals >= ALE.Level.victoryVal))
                     {
-                        console.log("YOUR WINNER!");
+                        ALE.MenuManager.winLevel();
                     }
                 }
             }

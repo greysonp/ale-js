@@ -66,17 +66,19 @@
     {
         // prompt to go to next level
         $('#content').empty();
-        $('#content').append('<h1>Next Level</h1>');
+        $('#content').append('<h1><a>Next Level</a></h1>');
         $('h1').click(function (e)
         {
-            $.load('game.html', function (content)
+            $('#content').load('game.html', function ()
             {
-                $('#content').append(content);
-                ALE.init(_currLevel);
+                ALE.init(++_currLevel);
             });
         });
 
         // If we just beat the newest level, we need to unlock the next level
+        if (_currLevel == getUnlocked())
+            unlockLevel();
+
     }
 
     // We can initialize the MenuManager right away
