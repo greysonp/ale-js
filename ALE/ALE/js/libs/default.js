@@ -17,7 +17,7 @@
                 // TODO: This application has been reactivated from suspension.
                 // Restore application state here.
             }
-            args.setPromise(WinJS.UI.processAll().then(ALE.init));
+            args.setPromise(WinJS.UI.processAll());
         }
     };
 

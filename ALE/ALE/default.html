@@ -21,6 +21,7 @@
     <script src="js/libs/createjs/tweenjs-0.4.0.min.js"></script>
     <script src="js/libs/box2d/box2dweb.js"></script>
     <script src="js/libs/box2d/box2d.js"></script>
+    <script src="js/libs/jquery-1.8.0-win8.min.js"></script>
 
     <!-- ALE references -->
     <script src="js/libs/ALE/ALE.js"></script>
@@ -35,13 +36,29 @@
     <script src="js/libs/ALE/Camera.js"></script>
     <script src="js/libs/ALE/Destination.js"></script>
     <script src="js/libs/ALE/Hero.js"></script>
+    <script src="js/libs/ALE/Configuration.js"></script>
 
     <!-- Game references -->
     <script src="js/Game.js"></script>
 
 </head>
 <body>
-    <!--<img id="bkg-img" src="images/bkg.jpg" />-->
-    <canvas id="canvas" width="1366" height="768"></canvas>
+    <div id="content-wrapper">
+        <div id="content">
+            <h1>ale-js</h1>
+            <h2><a href="level_select.html">level select</a></h2>
+            <h2><a href="instructions.html">instructions</a></h2>
+            <h2><a href="credits.html">credits</a></h2>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $('a').click(function (e)
+        {
+            e.preventDefault();
+            var href = $(this).attr('href');
+            $('#content').load(href);
+        });
+    </script>
 </body>
 </html>

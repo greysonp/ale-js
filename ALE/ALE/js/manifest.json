@@ -1,0 +1,14 @@
+﻿{
+	game_camera_height: 768,
+	game_camera_width: 1366,
+	game_orientation: "landscape",
+	game_levels: 100,
+    game_help_scenes: 2,
+    game_title: "ale-js",
+    play_button_text: "play",
+    help_button_text: "help",
+    quit_button_text: "quit",
+    main_screen_background: "",
+    developer_unlock: true,
+    enable_vibration: true
+}

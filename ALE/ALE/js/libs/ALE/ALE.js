@@ -12,7 +12,7 @@ this.createjs = this.createjs || {};
     ALE._camera = {};
 
 
-    ALE.init = function ()
+    ALE.init = function (level)
     {
         console.log("ALE.init()");
 
@@ -21,17 +21,18 @@ this.createjs = this.createjs || {};
         createjs.Touch.enable(ALE.stage);
         createjs.Ticker.setFPS(30);
         createjs.useRAF = true;
+        console.log(level);
 
-        initGame();
+        initGame(level);
     }
 
-    function initGame()
+    function initGame(level)
     {
         Game.nameResources();
         ALE.Media.loadAll(function ()
         {
             // Start off the game
-            Game.configureLevel(1);
+            Game.configureLevel(level);
 
             // Kick-off the Ticker now that the physics world is instantiated
             // (it's instantiated in the Level class)

@@ -13,7 +13,7 @@ this.Game = this.Game || {};
 
     Game.configureLevel = function(whichLevel)
     {
-        console.log("configureLevel()");
+        console.log("configureLevel(" + whichLevel + ")");
 
         if (whichLevel == 1)
         {

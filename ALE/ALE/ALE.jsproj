@@ -80,16 +80,20 @@
     <Content Include="assets\tune.ogg" />
     <Content Include="assets\winsound.ogg" />
     <Content Include="assets\woowoowoo.ogg" />
+    <Content Include="credits.html" />
     <Content Include="default.html" />
+    <Content Include="game.html" />
     <Content Include="images\logo.png" />
     <Content Include="images\smalllogo.png" />
     <Content Include="images\splashscreen.png" />
     <Content Include="images\storelogo.png" />
     <Content Include="css\default.css" />
+    <Content Include="instructions.html" />
     <Content Include="js\Game.js" />
     <Content Include="js\libs\ALE\ALE.js" />
     <Content Include="js\libs\ALE\Ball.js" />
     <Content Include="js\libs\ALE\Camera.js" />
+    <Content Include="js\libs\ALE\Configuration.js" />
     <Content Include="js\libs\ALE\Controls.js" />
     <Content Include="js\libs\ALE\Destination.js" />
     <Content Include="js\libs\ALE\Enemy.js" />
@@ -97,6 +101,7 @@
     <Content Include="js\libs\ALE\Hero.js" />
     <Content Include="js\libs\ALE\Level.js" />
     <Content Include="js\libs\ALE\Media.js" />
+    <Content Include="js\libs\ALE\MenuManager.js" />
     <Content Include="js\libs\ALE\Obstacle.js" />
     <Content Include="js\libs\ALE\PhysicsSprite.js" />
     <Content Include="js\libs\ALE\Scene.js" />
@@ -108,6 +113,10 @@
     <Content Include="js\libs\createjs\soundjs-0.3.0.min.js" />
     <Content Include="js\libs\createjs\tweenjs-0.4.0.min.js" />
     <Content Include="js\libs\default.js" />
+    <Content Include="js\libs\jquery-1.8.0-win8.js" />
+    <Content Include="js\libs\jquery-1.8.0-win8.min.js" />
+    <Content Include="js\manifest.json" />
+    <Content Include="level_select.html" />
     <None Include="ALE_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
