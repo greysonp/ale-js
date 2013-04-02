@@ -1,2 +1,5 @@
-#ALE
-ALE/ALE/bin/Debug/
+ALE/ALE/bin/
+ALE/ALE/bld/
+WP8Test/HTML5AppTest/Bin/
+Win8Test/WebTest/bin/
+Win8Test/WebTest/bld/
