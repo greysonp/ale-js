@@ -57,7 +57,7 @@
 
     config.getSplashBackground = function ()
     {
-        return obj.main_screen_background;
+        return "assets/" + obj.main_screen_background;
     }
 
     config.isDeveloperOverride = function ()

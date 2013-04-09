@@ -97,6 +97,23 @@ this.box2d = this.box2d || {};
     level.configure = function (width, height, initXGravity, initYGravity)
     {
         console.log("ALE.Level.configure()");
+        // Resize the canvas
+        var c = document.getElementById('canvas');
+        c.width = width;
+        c.height = height;
+
+        // Find what pixel size the width should be using proportions because
+        // I can't figure out how to style the width to scale appropriately
+        //
+        // screenWidth/screenHeight = x/gameHeight
+        var pixWidth = (window.screen.width * c.height) / window.screen.height;
+        console.log("pixWidth: " + pixWidth);
+
+        // Now get the percentage to eliminate the possibility of affecting the actual canvas width
+        //
+        // pixWidth/screenWidth = x/100
+        var percentage = (pixWidth * 100) / window.screen.width;
+        $('#canvas').css('width', percentage + '%');
 
         // Initializing scene
         level.current = new namespace.Scene();

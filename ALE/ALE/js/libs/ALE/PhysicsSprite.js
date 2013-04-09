@@ -63,6 +63,10 @@ this.box2d = this.box2d || {};
             this.myType = type;
 
             this.userData = { "type": this.myType, "obj": this };
+
+            // Set our scale so we're the correct size
+            this.sprite.scaleX = this.width / this.sprite.image.width;
+            this.sprite.scaleY = this.height / this.sprite.image.height;
         },
 
         // ==================
@@ -82,7 +86,6 @@ this.box2d = this.box2d || {};
             fixDef.density = density;
             fixDef.friction = friction;
             fixDef.restitution = elasticity;
-            console.log("Width: " + this.width);
             fixDef.shape = new box2d.b2CircleShape(this.width/2 / box2d.SCALE);
 
             // Physics Body

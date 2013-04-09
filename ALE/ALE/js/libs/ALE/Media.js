@@ -58,6 +58,8 @@ this.ALE = this.ALE || {};
         // Initialize our queue
         var queue = new createjs.LoadQueue(true);
         queue.installPlugin(createjs.Sound);
+
+        // Load in the images and sounds
         var manifest = makeManifest(images).concat(makeManifest(sounds));
         queue.loadManifest(manifest);
 

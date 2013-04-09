@@ -43,8 +43,8 @@
 
 </head>
 <body>
-    <div id="content-wrapper">
-        <div id="content">
+    <div id="content">
+        <div class="content-center">
             <h1>ale-js</h1>
             <h2><a href="level_select.html">level select</a></h2>
             <h2><a href="instructions.html">instructions</a></h2>
@@ -53,6 +53,9 @@
     </div>
 
     <script type="text/javascript">
+        // Set wallpaper
+        $('body, html').css('background-image', 'url(' + ALE.Configuration.getSplashBackground() + ')');
+
         $('a').click(function (e)
         {
             e.preventDefault();

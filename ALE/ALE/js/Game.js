@@ -23,10 +23,10 @@ this.Game = this.Game || {};
 
             ALE.Level.enableTilt(10, 10);
 
-            var h = ALE.Hero.makeAsMoveable(200, 200, 152, 152, "greenball.png", 0, 0, 0);
+            var h = ALE.Hero.makeAsMoveable(150, 70, 50, 50, "greenball.png", 0, 0, 0);
             h.setMoveByTilting();
 
-           ALE.Destination.makeAsStationary(200, 500, 152, 152, "mustardball.png", 1, 0);
+           ALE.Destination.makeAsStationary(300, 200, 50, 50, "mustardball.png", 1, 0);
            ALE.Level.setVictoryDestination(1);
         }
         else if (whichLevel == 2)
