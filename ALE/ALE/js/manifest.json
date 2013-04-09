@@ -8,7 +8,7 @@
     play_button_text: "play",
     help_button_text: "help",
     quit_button_text: "quit",
-    main_screen_background: "",
+    main_screen_background: "splash.png",
     developer_unlock: true,
     enable_vibration: true
 }
