@@ -56,7 +56,7 @@ this.box2d = this.box2d || {};
 
             // Texture
             this.sprite = new createjs.Bitmap(ALE.Media.getImage(imgName));
-            this.sprite.regX = this.sprite.regY = this.width / 2;
+            this.sprite.regX = this.sprite.regY = this.sprite.image.width / 2;
             this.sprite.x = px;
             this.sprite.y = py;
 

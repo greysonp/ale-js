@@ -104,9 +104,8 @@ this.box2d = this.box2d || {};
 
         // Find what pixel size the width should be using proportions because
         // I can't figure out how to style the width to scale appropriately
-        //
-        // screenWidth/screenHeight = x/gameHeight
-        var pixWidth = (window.screen.width * c.height) / window.screen.height;
+        var ratio = window.screen.height / height;
+        var pixWidth = c.width * ratio;
         console.log("pixWidth: " + pixWidth);
 
         // Now get the percentage to eliminate the possibility of affecting the actual canvas width

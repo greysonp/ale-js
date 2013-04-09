@@ -48,7 +48,7 @@
 
     function getUnlocked()
     {
-        var unlocked = window.localStorage['unlocked'];
+        var unlocked = parseInt(window.localStorage['unlocked']);
         return (unlocked || 1);
     }
 
@@ -66,7 +66,7 @@
     {
         // prompt to go to next level
         $('#content').empty();
-        $('#content').append('<h1><a>Next Level</a></h1>');
+        $('#content').append('<div class="content-center"><h1><a>Next Level</a></h1></div>');
         $('h1').click(function (e)
         {
             $('#content').load('game.html', function ()
@@ -84,5 +84,4 @@
     // We can initialize the MenuManager right away
     init();
     ALE.MenuManager = mm;
-
 })();
