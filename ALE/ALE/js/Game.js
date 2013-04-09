@@ -35,8 +35,7 @@ this.Game = this.Game || {};
             // finally, let's draw a destination and indicate that when one hero
             // reaches the destination, the level is won. Note that we don't
             // have any goodies, so the activation score should be zero!
-            //ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 1, 0);
-            ALE.Destination.makeAsStationary(40, 150, 10, 10, "mustardball.png", 1, 0);
+            ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 1, 0);
             ALE.Level.setVictoryDestination(1);
         }
         else if (whichLevel == 2)
