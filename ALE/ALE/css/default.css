@@ -3,6 +3,7 @@
     height: 100%;
     margin: 0px;
     padding: 0px;
+    background-color: black;
 }
 
 @media screen and (-ms-view-state: fullscreen-landscape) {
@@ -89,7 +90,7 @@ a:hover {
 }
 
 canvas {
-    border: 2px solid white;
     height: 100%;
     margin: auto;
+    background-color: #1e1e1e;
 }
