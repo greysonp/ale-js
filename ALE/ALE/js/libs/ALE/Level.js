@@ -40,6 +40,8 @@ this.box2d = this.box2d || {};
     var tiltVelocityOverride = false;
     var _gravityMultiplier = 1;
 
+    var ACCEL_ADJUST = 7;
+
     level.setWinText = function (text)
     {
         textYouWon = text;
@@ -263,8 +265,8 @@ this.box2d = this.box2d || {};
     {
         // Get reading
         var reading = e.reading;
-        var gx = reading.accelerationX.toFixed(3) * _gravityMultiplier;
-        var gy = reading.accelerationY.toFixed(3) * _gravityMultiplier;
+        var gx = reading.accelerationX.toFixed(3) * _gravityMultiplier * ACCEL_ADJUST;
+        var gy = reading.accelerationY.toFixed(3) * _gravityMultiplier * ACCEL_ADJUST;
         gy *= -1; // #ale-js specific! Windows accelerometer is reversed
 
         // Keep in bounds (-gravityMax, gravityMax)
