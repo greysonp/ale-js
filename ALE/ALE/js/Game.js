@@ -57,7 +57,7 @@ this.Game = this.Game || {};
 
             // new: add a pop-up message that shows for one second at the
             // beginning of the level
-            //ALE.PopUpScene.showTextTimed("Reach the destination\nto win this level.", 1);
+            ALE.PopUpScene.showTextTimed("Reach the destination\nto win this level.", 1);
         }
         else if (whichLevel == 3) 
         {
