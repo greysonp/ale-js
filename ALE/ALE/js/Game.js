@@ -59,6 +59,28 @@ this.Game = this.Game || {};
             // beginning of the level
             //ALE.PopUpScene.showTextTimed("Reach the destination\nto win this level.", 1);
         }
+        else if (whichLevel == 3) 
+        {
+            // start by setting up the level just like in level 1
+            ALE.Level.configure(460, 320, 0, 0);
+            ALE.Level.enableTilt(10, 10);
+
+            // draw a hero, but this time change the physics
+            var h = ALE.Hero.makeAsMoveable(40, 70, 30, 30, "greenball.png", 1, 0, 0.6);
+            h.setMoveByTilting();
+
+            // make a destination just like in level 1
+            ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 1, 0);
+            ALE.Level.setVictoryDestination(1);
+
+            // new: add a bounding box. Since the hero is inside this box, the
+            // hero will never fall off the screen
+            ALE.Obstacle.drawBoundingBox(0, 0, 460, 320, "red.png", 1, .3, 1);
+
+            // new: add a pop-up message that shows for one second at the
+            // beginning of the level
+            //ALE.PopUpScene.showTextTimed("Reach the destination\nto win this level.", 1);
+        }
     }
 
 

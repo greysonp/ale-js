@@ -26,7 +26,7 @@
         ALE.Level.current.attachChild(t.sprite);
 
         // Left
-        var l = new obstacle._Obstacle(x0, midY, 1, y1, imgName);
+        var l = new obstacle._Obstacle(x0 + 1, midY, 1, y1, imgName);
         l.setBoxPhysics(density, elasticity, friction, ALE.PhysicsSprite.BODY_STATIC);
         ALE.Level.current.attachChild(l.sprite);
 

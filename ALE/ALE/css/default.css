@@ -6,6 +6,10 @@
     background-color: black;
     background-size: 100%;
     background-repeat: no-repeat;
+
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: white;
 }
 
 @media screen and (-ms-view-state: fullscreen-landscape) {
@@ -47,7 +51,7 @@
     margin: 20px;
     width: 5em;
     height: 5em;
-    border: 4px solid white;
+    border: 4px solid blue;
     display: -ms-grid;
     -ms-grid-rows: 1fr;
     -ms-grid-columns: 1fr;
