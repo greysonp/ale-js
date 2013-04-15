@@ -68,6 +68,9 @@
 
             // Set instructions text
             $('#text-instructions').text(ALE.Configuration.getHelpButtonText());
+
+            // Do our one-time initialization of ALE
+            ALE.init();
         });
 
         $('a').click(function (e)

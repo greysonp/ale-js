@@ -11,10 +11,20 @@ this.createjs = this.createjs || {};
     ALE.stage = {};
     ALE._camera = {};
 
-
-    ALE.init = function (level)
+    ALE.init = function()
     {
-        console.log("ALE.init()");
+        Game.nameResources();
+        console.log("HELLO?");
+        // TODO: Put some sort of loading screen here
+        ALE.Media.loadAll(function ()
+        {
+            console.log("Loaded media.");
+        });
+    }
+
+    ALE.setup = function (level)
+    {
+        console.log("ALE.setup()");
 
         // He we'll initialize the stage and set the FPS to 30
         ALE.stage = new createjs.Stage("canvas");
@@ -23,21 +33,12 @@ this.createjs = this.createjs || {};
         createjs.useRAF = true;
         console.log(level);
 
-        initGame(level);
-    }
+        // Start off the game
+        Game.configureLevel(level);
 
-    function initGame(level)
-    {
-        Game.nameResources();
-        ALE.Media.loadAll(function ()
-        {
-            // Start off the game
-            Game.configureLevel(level);
-
-            // Kick-off the Ticker now that the physics world is instantiated
-            // (it's instantiated in the Level class)
-            createjs.Ticker.addListener(ALE);
-        });
+        // Kick-off the Ticker now that the physics world is instantiated
+        // (it's instantiated in the Level class)
+        createjs.Ticker.addListener(ALE);
     }
 
     ALE.configAccelerometer = function (toggle)

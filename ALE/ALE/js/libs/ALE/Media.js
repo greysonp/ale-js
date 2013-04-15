@@ -58,10 +58,12 @@ this.ALE = this.ALE || {};
         // Initialize our queue
         var queue = new createjs.LoadQueue(true);
         queue.installPlugin(createjs.Sound);
+        console.log("PLUGIN INSTALLED");
 
         // Load in the images and sounds
         var manifest = makeManifest(images).concat(makeManifest(sounds));
         queue.loadManifest(manifest);
+        console.log("LOADING CALLED");
 
         // When our queue is done, clean up and call our callback
         queue.addEventListener("complete", callback);

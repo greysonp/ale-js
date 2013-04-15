@@ -34,7 +34,7 @@
                     $('#content').load('game.html', function ()
                     {
                         _currLevel = lockedText;
-                        ALE.init(lockedText);
+                        ALE.setup(lockedText);
                     });
                 }
             })($(this).text());
@@ -71,7 +71,7 @@
         {
             $('#content').load('game.html', function ()
             {
-                ALE.init(++_currLevel);
+                ALE.setup(++_currLevel);
             });
         });
 
