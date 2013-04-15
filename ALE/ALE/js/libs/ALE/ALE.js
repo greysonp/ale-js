@@ -36,9 +36,13 @@ this.createjs = this.createjs || {};
         // Start off the game
         Game.configureLevel(level);
 
-        // Kick-off the Ticker now that the physics world is instantiated
-        // (it's instantiated in the Level class)
-        createjs.Ticker.addListener(ALE);
+        // Initialize after the popup scene is handled
+        ALE.PopUpScene.run(function ()
+        {
+            // Kick-off the Ticker now that the physics world is instantiated
+            // (it's instantiated in the Level class)
+            createjs.Ticker.addListener(ALE);
+        });
     }
 
     ALE.configAccelerometer = function (toggle)

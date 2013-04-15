@@ -46,7 +46,7 @@ this.Game = this.Game || {};
             ALE.Level.enableTilt(10, 10);
             var h = ALE.Hero.makeAsMoveable(40, 70, 30, 30, "greenball.png", 0, 0, 0);
             h.setMoveByTilting();
-            ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 1, 0);
+            ALE.Destination.makeAsStationary(40, 150, 10, 10, "mustardball.png", 1, 0);
             ALE.Level.setVictoryDestination(1);
 
             // new: add a bounding box so the hero can't fall off the screen
@@ -57,7 +57,7 @@ this.Game = this.Game || {};
 
             // new: add a pop-up message that shows for one second at the
             // beginning of the level
-            ALE.PopUpScene.showTextTimed("Reach the destination\nto win this level.", 1);
+            ALE.PopUpScene.showTextTimed("Reach the destination\nto win this level.", 2);
         }
         else if (whichLevel == 3) 
         {
@@ -79,7 +79,7 @@ this.Game = this.Game || {};
 
             // new: add a pop-up message that shows for one second at the
             // beginning of the level
-            //ALE.PopUpScene.showTextTimed("Reach the destination\nto win this level.", 1);
+            //ALE.PopUpScene.showTextTimed("Reach the destination\nto win this level.", 2);
         }
     }
 
