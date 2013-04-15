@@ -5,10 +5,15 @@
     var config = {};
 
     var obj = {};
-    $.get("js/manifest.json", function (data)
+
+    config.init = function (callback)
     {
-        obj = eval('(' + data + ')');
-    });
+        $.get("js/manifest.json", function (data)
+        {
+            obj = eval('(' + data + ')');
+            callback();
+        });
+    }
 
     config.getCameraHeight = function ()
     {

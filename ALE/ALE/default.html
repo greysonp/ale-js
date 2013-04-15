@@ -53,14 +53,20 @@
     </div>
 
     <script type="text/javascript">
+        console.log("Drew page.");
+
         // Set wallpaper
-        $('body, html').css('background-image', 'url(' + ALE.Configuration.getSplashBackground() + ')');
+        ALE.Configuration.init(function()
+        {
+            $('body, html').css('background-image', 'url(' + ALE.Configuration.getSplashBackground() + ')');
+        });
 
         $('a').click(function (e)
         {
             e.preventDefault();
             var href = $(this).attr('href');
             $('#content').load(href);
+            $('body, html').css('background-image', 'none');
         });
     </script>
 </body>

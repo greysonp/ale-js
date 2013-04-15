@@ -86,4 +86,4 @@ this.createjs = this.createjs || {};
         }
     }
 
-})(this.ALE);
+})();

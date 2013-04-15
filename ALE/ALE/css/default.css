@@ -4,6 +4,8 @@
     margin: 0px;
     padding: 0px;
     background-color: black;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 @media screen and (-ms-view-state: fullscreen-landscape) {
