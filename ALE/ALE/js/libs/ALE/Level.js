@@ -263,11 +263,15 @@ this.box2d = this.box2d || {};
 
     function onAccelerationChanged(e)
     {
+        // Don't do anything if the game is paused
+        if (ALE.paused)
+            return;
+
         // Get reading
         var reading = e.reading;
         var gx = reading.accelerationX.toFixed(3) * _gravityMultiplier * ACCEL_ADJUST;
         var gy = reading.accelerationY.toFixed(3) * _gravityMultiplier * ACCEL_ADJUST;
-        gy *= -1; // #ale-js specific! Windows accelerometer is reversed
+        gy *= -1; // ale-js specific! Windows accelerometer is reversed
 
         // Keep in bounds (-gravityMax, gravityMax)
         gx = Math.min(gx, _xGravityMax);

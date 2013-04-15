@@ -64,9 +64,6 @@
 
     mm.winLevel = function ()
     {
-        // Stop the action
-        createjs.Ticker.removeEventListener("tick", ALE);
-
         // prompt to go to next level
         $('#content').empty();
         $('#content').append('<div class="content-center"><h1><a>Next Level</a></h1></div>');

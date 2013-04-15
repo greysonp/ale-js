@@ -26,6 +26,9 @@
 
     popup.run = function (callback)
     {
+        // Pause the game
+        ALE.paused = true;
+
         // If there's text, add it
         if (popup.text)
             $(popup.id).add('p').text(popup.text);
@@ -61,7 +64,6 @@
 
     function reset()
     {
-        console.log("RESETTTTT");
         // Reset all of our attributes
         $(popup.id).hide();
         $(popup.id).empty();
@@ -69,6 +71,9 @@
         popup.duration = 0;
         popup.image = null;
         popup.touch = false;
+
+        // Unpause the game
+        ALE.paused = false;
     }
 
     ALE.PopUpScene = popup;

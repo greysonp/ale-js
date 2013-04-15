@@ -10,6 +10,7 @@ this.createjs = this.createjs || {};
 
     ALE.stage = {};
     ALE._camera = {};
+    ALE.paused = false;
 
     ALE.init = function()
     {
@@ -52,6 +53,9 @@ this.createjs = this.createjs || {};
 
     ALE.tick = function (e)
     {
+        if (ALE.paused)
+            return;
+
         box2d.world.Step(1 / FPS_TARGET, 3, 3);
         box2d.world.ClearForces();
         ALE.stage.update();
