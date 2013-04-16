@@ -137,6 +137,24 @@ this.Game = this.Game || {};
             ALE.Level.setVictoryDestination(2);
         }
 
+        else if (whichLevel == 6) 
+        {
+            // configure a basic level, just like the start of level 2:
+            ALE.Level.configure(460, 320, 0, 0);
+            ALE.Level.enableTilt(10, 10);
+            ALE.Obstacle.drawBoundingBox(0, 0, 460, 320, "red.png", 1, .3, 1);
+            var h = ALE.Hero.makeAsMoveable(40, 70, 30, 30, "greenball.png", 0, 0, 0);
+            h.setMoveByTilting();
+            ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 1, 0);
+            ALE.Level.setVictoryDestination(1);
+
+            // change the behavior or tilt
+            ALE.Level.setTiltAsVelocity(true);
+
+            // and print a popup to tell the user what's going on...
+            ALE.PopUpScene.showTextTimed("A different way\nto use tilt.", 1);
+        }
+
     }
 
 
