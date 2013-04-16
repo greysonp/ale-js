@@ -9,6 +9,7 @@ this.Game = this.Game || {};
 
         ALE.Media.registerImage("greenball.png");
         ALE.Media.registerImage("mustardball.png");
+        ALE.Media.registerImage("red.png");
     }
 
     Game.configureLevel = function(whichLevel)
@@ -40,18 +41,45 @@ this.Game = this.Game || {};
         }
         else if (whichLevel == 2)
         {
+            // start by setting everything up just like in level 1
             ALE.Level.configure(460, 320, 0, 0);
             ALE.Level.enableTilt(10, 10);
             var h = ALE.Hero.makeAsMoveable(40, 70, 30, 30, "greenball.png", 0, 0, 0);
             h.setMoveByTilting();
+            ALE.Destination.makeAsStationary(40, 150, 10, 10, "mustardball.png", 1, 0);
+            ALE.Level.setVictoryDestination(1);
+
+            // new: add a bounding box so the hero can't fall off the screen
+            ALE.Obstacle.drawBoundingBox(0, 0, 460, 320, "red.png", 0, 0, 0);
+
+            // new: change the text that we display when the level is won
+            ALE.Level.setWinText("Good job!");
+
+            // new: add a pop-up message that shows for one second at the
+            // beginning of the level
+            ALE.PopUpScene.showTextTimed("Reach the destination\nto win this level.", 2);
+        }
+        else if (whichLevel == 3) 
+        {
+            // start by setting up the level just like in level 1
+            ALE.Level.configure(460, 320, 0, 0);
+            ALE.Level.enableTilt(10, 10);
+
+            // draw a hero, but this time change the physics
+            var h = ALE.Hero.makeAsMoveable(40, 70, 30, 30, "greenball.png", 1, 0, 0.6);
+            h.setMoveByTilting();
+
+            // make a destination just like in level 1
             ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 1, 0);
             ALE.Level.setVictoryDestination(1);
 
-            //Obstacle.drawBoundingBox(0, 0, 460, 320, "red.png", 0, 0, 0);
+            // new: add a bounding box. Since the hero is inside this box, the
+            // hero will never fall off the screen
+            ALE.Obstacle.drawBoundingBox(0, 0, 460, 320, "red.png", 1, .3, 1);
 
-            //Level.setWinText("Good job!");
-
-            //PopUpScene.showTextTimed("Reach the destination\ntowin this level.", 1);
+            // new: add a pop-up message that shows for one second at the
+            // beginning of the level
+            ALE.PopUpScene.showTextTimed("Reach the destination\nto win this level.", 2);
         }
     }
 

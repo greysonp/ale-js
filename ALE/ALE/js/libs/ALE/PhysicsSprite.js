@@ -122,12 +122,12 @@ this.box2d = this.box2d || {};
             fixDef.friction = friction;
             fixDef.restitution = elasticity;
             fixDef.shape = new box2d.b2PolygonShape();
-            fixDef.shape.SetAsBox(this.sprite.image.width / box2d.SCALE, this.sprite.image.height / box2d.SCALE);
+            fixDef.shape.SetAsBox(this.width / box2d.SCALE, this.height / box2d.SCALE);
 
             // Physics Body
             var bodyDef = new box2d.b2BodyDef();
-            bodyDef.position.x = px / box2d.SCALE;
-            bodyDef.position.y = py / box2d.SCALE;
+            bodyDef.position.x = this.sprite.x / box2d.SCALE;
+            bodyDef.position.y = this.sprite.y / box2d.SCALE;
 
             // Get body type
             if (bodyType == ALE.PhysicsSprite.BODY_DYNAMIC)

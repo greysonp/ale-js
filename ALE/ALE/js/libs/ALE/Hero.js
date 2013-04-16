@@ -25,12 +25,12 @@
         lastHero = h;
 
         return h;
-    };
+    }
 
     /**
      * As private as we can make it.
      */
-    (function ()
+    ;(function ()
     {
         var _Hero = Class.design('ALE.Hero._Hero',
         {

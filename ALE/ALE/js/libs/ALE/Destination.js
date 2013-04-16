@@ -19,9 +19,9 @@
         ALE.Level.current.attachChild(d.sprite);
         destinations.push(d);
         return d;
-    };
+    }
 
-    (function (namespace)
+    ;(function (namespace)
     {
         var _Destination = Class.design('ALE.Destination._Destination',
         {
