@@ -50,7 +50,8 @@ this.ALE = this.ALE || {};
 
     media.registerSound = function (soundName)
     {
-        console.log("ALE.Media.registerSound()");
+        sounds[soundName] = "assets/" + soundName;
+        console.log("ALE.Media registered sound: " + sounds[soundName]);
     }
 
     media.loadAll = function (callback)
@@ -61,12 +62,13 @@ this.ALE = this.ALE || {};
         console.log("PLUGIN INSTALLED");
 
         // Load in the images and sounds
-        var manifest = makeManifest(images).concat(makeManifest(sounds));
+        var manifest = makeManifestFromImages(images).concat(makeManifestFromSounds(sounds));
         queue.loadManifest(manifest);
         console.log("LOADING CALLED");
 
         // When our queue is done, clean up and call our callback
         queue.addEventListener("complete", callback);
+        queue.addEventListener("fileload", handleFileLoad);
     }
 
     function getKeys(a)
@@ -78,7 +80,7 @@ this.ALE = this.ALE || {};
         return keys;
     }
 
-    function makeManifest(a)
+    function makeManifestFromImages(a)
     {
         var keys = getKeys(a);
         var manifest = new Array();
@@ -87,5 +89,18 @@ this.ALE = this.ALE || {};
         return manifest;
     }
 
+    function makeManifestFromSounds(a)
+    {
+        var keys = getKeys(a);
+        var manifest = new Array();
+        for (var i = 0; i < keys.length; i++)
+            manifest.push({ id: keys[i], src: a[keys[i]] }); // The difference is we don't use src
+        return manifest;                                     // Lazy, I know.
+    }
+
+    function handleFileLoad(e)
+    {
+        console.log("LOADED: " + e.item.type);
+    }
 })(this.ALE);
 

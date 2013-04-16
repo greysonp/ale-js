@@ -10,6 +10,9 @@ this.Game = this.Game || {};
         ALE.Media.registerImage("greenball.png");
         ALE.Media.registerImage("mustardball.png");
         ALE.Media.registerImage("red.png");
+        ALE.Media.registerImage("msg1.png");
+
+        ALE.Media.registerSound("hipitch.mp3");
     }
 
     Game.configureLevel = function(whichLevel)
@@ -99,16 +102,39 @@ this.Game = this.Game || {};
 
             // now let's make a destination, but indicate that it can hold TWO
             // heroes
-            var d = ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 2, 0);
+            var d = ALE.Destination.makeAsStationary(40, 150, 10, 10, "mustardball.png", 2, 0);
             // let's also say that whenever a hero reaches the destination, a
             // sound will play
-            //d.setArrivalSound("hipitch.ogg");
+            d.setArrivalSound("hipitch.mp3");
             // and now let's say that two heroes have to reach the destination
             // in order to win
             ALE.Level.setVictoryDestination(2);
 
             // Tell the user what's different in this level
             ALE.PopUpScene.showTextTimed("All heroes must\nreach the destination", 3);
+        }
+        
+        else if (whichLevel == 5) 
+        {
+            // begin by configuring the level and heroes just like in level 4
+            ALE.Level.configure(460, 320, 0, 0);
+            ALE.Level.enableTilt(10, 10);
+            ALE.Obstacle.drawBoundingBox(0, 0, 460, 320, "red.png", 1, .3, 1);
+            var h1 = ALE.Hero.makeAsMoveable(40, 70, 30, 30, "greenball.png", 1, 0, 0.6);
+            h1.setMoveByTilting();
+            var h2 = ALE.Hero.makeAsMoveable(140, 70, 30, 30, "greenball.png", 1, 0, 0.6);
+            h2.setMoveByTilting();
+
+            // notice that now we will make two destinations, each of which can
+            // only hold ONE hero
+            ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 1, 0);
+            ALE.Destination.makeAsStationary(290, 260, 10, 10, "mustardball.png", 1, 0);
+
+            // Let's show msg1.png instead of text. Note that we had to register
+            // in registerMedia()
+            ALE.PopUpScene.showImageTimed("msg1.png", 3, 10, 10);
+
+            ALE.Level.setVictoryDestination(2);
         }
 
     }

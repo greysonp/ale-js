@@ -61,6 +61,7 @@
     <Content Include="assets\fwapfwap.ogg" />
     <Content Include="assets\greenball.png" />
     <Content Include="assets\greyball.png" />
+    <Content Include="assets\hipitch.mp3" />
     <Content Include="assets\hipitch.ogg" />
     <Content Include="assets\invis.png" />
     <Content Include="assets\losesound.ogg" />
@@ -111,7 +112,7 @@
     <Content Include="js\libs\class.min.js" />
     <Content Include="js\libs\createjs\easeljs-0.6.0.min.js" />
     <Content Include="js\libs\createjs\preloadjs-0.3.0.min.js" />
-    <Content Include="js\libs\createjs\soundjs-0.3.0.min.js" />
+    <Content Include="js\libs\createjs\soundjs-0.4.0.min.js" />
     <Content Include="js\libs\createjs\tweenjs-0.4.0.min.js" />
     <Content Include="js\libs\default.js" />
     <Content Include="js\libs\jquery-1.8.0-win8.js" />

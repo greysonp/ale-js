@@ -9,6 +9,8 @@
     popup.text = null;
     popup.duration = 0;
     popup.image = null;
+    popup.imageX = 0;
+    popup.imageY = 0;
     popup.touch = false;
 
     popup.showTextTimed = function (message, duration, red, green, blue, fontSize)
@@ -22,6 +24,16 @@
         popup.text = message;
         popup.duration = duration * 1000;
         $(popup.id).css('font-size', fontSize);
+    }
+
+    popup.showImageTimed = function (imgName, duration, x, y)
+    {
+        // Initialize optional parameters
+        x = x || 0;
+        y = y || 0;
+
+        popup.image = imgName;
+        popup.duration = duration * 1000;
     }
 
     popup.run = function (callback)
