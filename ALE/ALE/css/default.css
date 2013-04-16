@@ -118,4 +118,5 @@ canvas {
     text-align: center;
     background-color: black;
     display: none;
+    position: relative;
 }

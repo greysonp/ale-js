@@ -59,16 +59,13 @@ this.ALE = this.ALE || {};
         // Initialize our queue
         var queue = new createjs.LoadQueue(true);
         queue.installPlugin(createjs.Sound);
-        console.log("PLUGIN INSTALLED");
 
         // Load in the images and sounds
         var manifest = makeManifestFromImages(images).concat(makeManifestFromSounds(sounds));
         queue.loadManifest(manifest);
-        console.log("LOADING CALLED");
 
         // When our queue is done, clean up and call our callback
         queue.addEventListener("complete", callback);
-        queue.addEventListener("fileload", handleFileLoad);
     }
 
     function getKeys(a)
@@ -96,11 +93,6 @@ this.ALE = this.ALE || {};
         for (var i = 0; i < keys.length; i++)
             manifest.push({ id: keys[i], src: a[keys[i]] }); // The difference is we don't use src
         return manifest;                                     // Lazy, I know.
-    }
-
-    function handleFileLoad(e)
-    {
-        console.log("LOADED: " + e.item.type);
     }
 })(this.ALE);
 

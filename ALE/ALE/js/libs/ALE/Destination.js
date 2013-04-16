@@ -61,11 +61,7 @@
             {
                 console.log("ALE.Destination._Destination.onArrive()");
                 if (this.arrivalSound != null)
-                {
-                    console.log("Gonna play a sound!");
                     createjs.Sound.play(this.arrivalSound);
-                    console.log("Playing a sound!");
-                }
             },
 
             setArrivalSound: function (soundName)

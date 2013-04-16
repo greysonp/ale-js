@@ -235,6 +235,16 @@ this.box2d = this.box2d || {};
         _gravityMultiplier = multiplier;
     }
 
+    level.getWidth = function ()
+    {
+        return _width;
+    }
+
+    level.getHeight = function ()
+    {
+        return _height;
+    }
+
     var accelerometer;
     var intervalId = 0;
     var getReadingInterval = 0;

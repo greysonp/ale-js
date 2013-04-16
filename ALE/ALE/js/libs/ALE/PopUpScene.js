@@ -4,36 +4,37 @@
 {
     var popup = {};
     
-    popup.id = '#popup-scene';
+    var id = '#popup-scene';
+    var imgId = '#popup-scene img';
 
-    popup.text = null;
-    popup.duration = 0;
-    popup.image = null;
-    popup.imageX = 0;
-    popup.imageY = 0;
-    popup.touch = false;
+    var text = null;
+    var duration = 0;
+    var image = null;
+    var imageX = 0;
+    var imageY = 0;
+    var touch = false;
 
-    popup.showTextTimed = function (message, duration, red, green, blue, fontSize)
+    popup.showTextTimed = function (message, mduration, mred, mgreen, mblue, fontSize)
     {
         // Initialize optional parameters
-        red = red || 255;
-        green = green || 255;
-        blue = blue || 255;
+        red = mred || 255;
+        green = mgreen || 255;
+        blue = mblue || 255;
         fontSize = fontSize || '2em';
 
-        popup.text = message;
-        popup.duration = duration * 1000;
-        $(popup.id).css('font-size', fontSize);
+        text = message;
+        duration = mduration * 1000;
+        $(id).css('font-size', fontSize);
     }
 
-    popup.showImageTimed = function (imgName, duration, x, y)
+    popup.showImageTimed = function (imgName, mduration, x, y)
     {
         // Initialize optional parameters
-        x = x || 0;
-        y = y || 0;
+        imageX = x || 0;
+        imageY = y || 0;
 
-        popup.image = imgName;
-        popup.duration = duration * 1000;
+        image = imgName;
+        duration = mduration * 1000;
     }
 
     popup.run = function (callback)
@@ -42,15 +43,30 @@
         ALE.paused = true;
 
         // If there's text, add it
-        if (popup.text)
-            $(popup.id).add('p').text(popup.text);
+        if (text)
+            $(id).add('p').text(text);
 
         // If there's an image, add it
-        if (popup.image)
-            $(popup.id).add('img').attr('src', popup.image);
+        if (image)
+        {
+            // Find the size ratio
+            var ratio = window.screen.height / ALE.Level.getHeight();
+
+            // Make the popup screen take up the appropriate size
+            $(id).css('width', $('#canvas').width() + 'px').css('height', '100%');
+
+            // Grab the image we added and adjust all of its properties (according to ratio)
+            document.getElementById(id.substring(1)).appendChild(ALE.Media.getImage(image));
+            $(imgId).css('width', $(imgId).width() * ratio + 'px')
+                    .css('height', $(imgId).height() * ratio + 'px')
+                    .css('position', 'absolute')
+                    .css('left', imageX * ratio + 'px')
+                    .css('top', imageY * ratio + 'px');
+
+        }
 
         // Run the right routine based on the current properties
-        if (popup.touch)
+        if (touch)
             runTouch(callback);
         else
             runTime(callback);
@@ -65,24 +81,25 @@
     function runTime(callback)
     {
         // Show the popup and set the timeout
-        $(popup.id).show();
+        $(id).show();
         setTimeout(function ()
         {
             reset();
             callback();
 
-        }, popup.duration);
+        }, duration);
     }
 
     function reset()
     {
         // Reset all of our attributes
-        $(popup.id).hide();
-        $(popup.id).empty();
-        popup.text = null;
-        popup.duration = 0;
-        popup.image = null;
-        popup.touch = false;
+        $(id).hide();
+        $(id).empty();
+        $(id).css('width', 'auto').css('height', 'auto');
+        text = null;
+        duration = 0;
+        image = null;
+        touch = false;
 
         // Unpause the game
         ALE.paused = false;
