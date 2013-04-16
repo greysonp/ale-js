@@ -81,6 +81,36 @@ this.Game = this.Game || {};
             // beginning of the level
             ALE.PopUpScene.showTextTimed("Reach the destination\nto win this level.", 2);
         }
+
+        else if (whichLevel == 4) 
+        {
+            // start by setting up the level just like in level 3
+            ALE.Level.configure(460, 320, 0, 0);
+            ALE.Level.enableTilt(10, 10);
+
+            // draw a bounding box with physics, just like in level 3
+            ALE.Obstacle.drawBoundingBox(0, 0, 460, 320, "red.png", 1, .3, 1);
+
+            // now let's draw two heroes who can both move by tilting
+            var h1 = ALE.Hero.makeAsMoveable(40, 70, 30, 30, "greenball.png", 1, 0, 0.6);
+            h1.setMoveByTilting();
+            var h2 = ALE.Hero.makeAsMoveable(140, 70, 30, 30, "greenball.png", 1, 0, 0.6);
+            h2.setMoveByTilting();
+
+            // now let's make a destination, but indicate that it can hold TWO
+            // heroes
+            var d = ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 2, 0);
+            // let's also say that whenever a hero reaches the destination, a
+            // sound will play
+            //d.setArrivalSound("hipitch.ogg");
+            // and now let's say that two heroes have to reach the destination
+            // in order to win
+            ALE.Level.setVictoryDestination(2);
+
+            // Tell the user what's different in this level
+            ALE.PopUpScene.showTextTimed("All heroes must\nreach the destination", 3);
+        }
+
     }
 
 
