@@ -9,7 +9,7 @@
 
     dest.onNewLevel = function ()
     {
-        arrivals = 0;
+        dest.arrivals = 0;
     }
 
     dest.makeAsStationary = function (x, y, width, height, imgName, capacity, activationScore)
@@ -73,7 +73,7 @@
             setArrivalSound: function (soundName)
             {
                 this.arrivalSound = soundName;
-            }
+            },
         })
     })();
 })();
