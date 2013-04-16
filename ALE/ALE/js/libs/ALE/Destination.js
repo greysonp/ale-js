@@ -62,6 +62,12 @@
                 console.log("ALE.Destination._Destination.onArrive()");
                 if (this.arrivalSound != null)
                     createjs.Sound.play(this.arrivalSound);
+
+                if (this._holding >= this._capacity)
+                {
+                    console.log("CAPACITY");
+                    this.sprite.body.SetActive(false);
+                }
             },
 
             setArrivalSound: function (soundName)

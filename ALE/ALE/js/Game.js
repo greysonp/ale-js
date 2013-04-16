@@ -120,15 +120,15 @@ this.Game = this.Game || {};
             ALE.Level.configure(460, 320, 0, 0);
             ALE.Level.enableTilt(10, 10);
             ALE.Obstacle.drawBoundingBox(0, 0, 460, 320, "red.png", 1, .3, 1);
-            var h1 = ALE.Hero.makeAsMoveable(40, 70, 30, 30, "greenball.png", 1, 0, 0.6);
+            var h1 = ALE.Hero.makeAsMoveable(40, 150, 30, 30, "greenball.png", 1, 0, 0.6);
             h1.setMoveByTilting();
-            var h2 = ALE.Hero.makeAsMoveable(140, 70, 30, 30, "greenball.png", 1, 0, 0.6);
+            var h2 = ALE.Hero.makeAsMoveable(40, 70, 30, 30, "greenball.png", 1, 0, 0.6);
             h2.setMoveByTilting();
 
             // notice that now we will make two destinations, each of which can
             // only hold ONE hero
-            ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 1, 0);
-            ALE.Destination.makeAsStationary(290, 260, 10, 10, "mustardball.png", 1, 0);
+            ALE.Destination.makeAsStationary(40, 200, 10, 10, "mustardball.png", 1, 0);
+            ALE.Destination.makeAsStationary(140, 200, 10, 10, "mustardball.png", 1, 0);
 
             // Let's show msg1.png instead of text. Note that we had to register
             // in registerMedia()
