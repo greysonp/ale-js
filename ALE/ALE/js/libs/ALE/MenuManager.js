@@ -64,6 +64,9 @@
 
     mm.winLevel = function ()
     {
+        if (ALE.Level.winSound != null)
+            createjs.Sound.play(ALE.Level.winSound);
+
         // prompt to go to next level
         $('#content').empty();
         $('#content').append('<div class="content-center"><h1><a>Next Level</a></h1></div>');
@@ -83,6 +86,11 @@
 
     mm.loseLevel = function (message)
     {
+        ALE.pause();
+
+        if (ALE.Level.loseSound != null)
+            createjs.Sound.play(ALE.Level.loseSound);
+
         $('#content').empty();
         $('#content').append('<div class="content-center"><h1><a>' + message + '</a></h1></div>');
         $('h1').click(function (e)

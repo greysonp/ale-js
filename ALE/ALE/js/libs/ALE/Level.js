@@ -11,9 +11,9 @@ this.box2d = this.box2d || {};
     // Fields
     level.current = {};
     level.contactListener = {};
-    var winSound = {};
-    var loseSound = {};
-    var music = {};
+    level.winSound = {};
+    level.loseSound = {};
+    level.music = {};
     level.victoryType = level.VICTORY.DESTINATION;
     level.victoryVal = 0;
 
@@ -54,17 +54,17 @@ this.box2d = this.box2d || {};
 
     level.setWinSound = function (soundName)
     {
-        winSound = namespace.Media.getSound(s);
+        level.winSound = namespace.Media.getSound(soundName);
     }
 
     level.setLoseSound = function (soundName)
     {
-        loseSound = namespace.Media.getSound(soundName);
+        level.loseSound = namespace.Media.getSound(soundName);
     }
 
     level.setMusic = function (musicName)
     {
-        music = namespace.Media.getMusic(musicName);
+        level.music = namespace.Media.getMusic(musicName);
     }
 
     level.makeBackgroundLayer = function (imgName, factor, x, y)
@@ -157,9 +157,9 @@ this.box2d = this.box2d || {};
         level.textYouWon = "Next Level";
         level.textYouLost = "Try Again";
 
-        winSound = null;
-        loseSound = null;
-        music = null;
+        level.winSound = null;
+        level.loseSound = null;
+        level.music = null;
         background = null;
         vertBackground = null;
         backgroundYouWon = null;

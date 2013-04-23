@@ -185,14 +185,23 @@ this.box2d = this.box2d || {};
             route.run();
         },
 
+        setRotationSpeed: function (duration)
+        {
+            this.sprite.rotationSpeed = (2 * Math.PI) / duration;
+        },
+
         tick: function(e)
         {
             // Note: 'this' refers to 'this.sprite'
+            var rotSpeed = this.rotationSpeed || 0;
+            this.body.SetAngle(this.body.GetAngle() + rotSpeed);
 
             // Set texture position
             this.x = this.body.GetPosition().x * box2d.SCALE;
             this.y = this.body.GetPosition().y * box2d.SCALE;
             this.rotation = this.body.GetAngle() * (180 / Math.PI);
+
+
         }
     })
 

@@ -51,6 +51,16 @@
         duration = mduration * 1000;
     }
 
+    popup.showImageAndWait = function (imgName, x, y)
+    {
+        // Initialize optional parameters
+        imageX = x || 0;
+        imageY = y || 0;
+
+        image = imgName;
+        touch = true;
+    }
+
     popup.run = function (callback)
     {
         // Pause the game
@@ -72,8 +82,9 @@
 
             // Grab the image we added and adjust all of its properties (according to ratio)
             document.getElementById(id.substring(1)).appendChild(ALE.Media.getImage(image));
-            $(imgId).css('width', $(imgId).width() * ratio + 'px')
-                    .css('height', $(imgId).height() * ratio + 'px')
+            console.log("RATIO: " + ratio);
+            $(imgId).css('width', $(imgId)[0].width * ratio + 'px')
+                    .css('height', $(imgId)[0].height * ratio + 'px')
                     .css('position', 'absolute')
                     .css('left', imageX * ratio + 'px')
                     .css('top', imageY * ratio + 'px');
