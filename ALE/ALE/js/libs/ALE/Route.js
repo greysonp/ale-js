@@ -53,6 +53,7 @@
                 this.rep.x = this.points[0].x;
                 this.rep.y = this.points[0].y;
                 this.target.SetPosition(new box2d.b2Vec2(this.rep.x, this.rep.y));
+                this.index++;
 
                 var tween = createjs.Tween.get(this.rep).to({ x: this.points[this.index].x, y: this.points[this.index].y }, this.tweenTime);
                 tween.addEventListener("change", function () { t.onUpdate(t); });
