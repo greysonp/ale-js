@@ -168,7 +168,30 @@ this.Game = this.Game || {};
             ALE.Level.setVictoryDestination(1);
 
             // draw an enemy:
-            ALE.Enemy.makeAsStationary(40, 250, 20, 20, "redball.png", 1.0, 0.3, 0.6);
+            ALE.Enemy.makeAsStationary(250, 250, 20, 20, "redball.png", 1.0, 0.3, 0.6);
+
+            // display a message that stays until it is pressed
+            ALE.PopUpScene.showTextAndWait("Avoid the enemy and\nreach the destination");
+        }
+
+        else if (whichLevel == 8) 
+        {
+            // configure a basic level, just like the start of level 2:
+            ALE.Level.configure(460, 320, 0, 0);
+            ALE.Level.enableTilt(10, 10);
+            ALE.Obstacle.drawBoundingBox(0, 0, 460, 320, "red.png", 1, .3, 1);
+            var h = ALE.Hero.makeAsMoveable(40, 70, 30, 30, "greenball.png", 0, 0, 0);
+            h.setMoveByTilting();
+            ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 1, 0);
+            ALE.Level.setVictoryDestination(1);
+
+            // draw an enemy that can move
+            var e = ALE.Enemy.makeAsMoveable(250, 250, 20, 20, "redball.png", 1.0, 0.3, 0.6);
+
+            // attach a path to the enemy. It starts at (250, 250) and moves to
+            // (250, 20). This means it has *2* points on its route. Notice that
+            // it isn't going to move quite as we'd like
+            e.setRoute(new ALE.Route(2).to(250, 250).to(250, 50), 2);
 
             // display a message that stays until it is pressed
             ALE.PopUpScene.showTextAndWait("Avoid the enemy and\nreach the destination");

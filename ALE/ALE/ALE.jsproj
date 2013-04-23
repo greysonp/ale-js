@@ -105,6 +105,7 @@
     <Content Include="js\libs\ALE\Obstacle.js" />
     <Content Include="js\libs\ALE\PhysicsSprite.js" />
     <Content Include="js\libs\ALE\PopUpScene.js" />
+    <Content Include="js\libs\ALE\Route.js" />
     <Content Include="js\libs\ALE\Scene.js" />
     <Content Include="js\libs\box2d\box2d.js" />
     <Content Include="js\libs\box2d\box2dweb.js" />

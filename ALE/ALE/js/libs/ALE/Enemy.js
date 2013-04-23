@@ -26,7 +26,7 @@
         return false;
     }
 
-    enemy.makeAsMovable = function (x, y, width, height, imgName, density, elasticity, friction)
+    enemy.makeAsMoveable = function (x, y, width, height, imgName, density, elasticity, friction)
     {
         console.log("ALE.Enemy.makeAsMovable()");
         var e = new enemy._Enemy(x, y, width, height, imgName, false, density, elasticity, friction, false);
@@ -93,7 +93,7 @@
 
             setDefeatTrigger: function(id)
             {
-                this.riggerID = id;
+                this.triggerID = id;
                 this.isTrigger = true;
             },
 

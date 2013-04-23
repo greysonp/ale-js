@@ -161,12 +161,6 @@ this.box2d = this.box2d || {};
 
         toggleCollisionEffect: function (state)
         {
-            /// <signature>
-            /// <summary>Blah blah blah</summary>
-            /// <param name="state">paramsdlkd</param>
-            /// </signature>
-
-
             // If this was a sensor, we need to disable sensor, or else this entity
             // will go right through walls
             this.sprite.body.GetFixtureList().SetSensor(!state);
@@ -182,6 +176,13 @@ this.box2d = this.box2d || {};
             this.sprite.visible = false;
             // Play disappearing animation
             // Play sound if !quiet
+        },
+
+        setRoute: function(route, duration)
+        {
+            route.setTarget(this.sprite.body);
+            route.setDuration(duration * 1000);
+            route.run();
         },
 
         tick: function(e)
