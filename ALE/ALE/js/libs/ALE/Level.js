@@ -274,7 +274,7 @@ this.box2d = this.box2d || {};
     function onAccelerationChanged(e)
     {
         // Don't do anything if the game is paused
-        if (ALE.paused)
+        if (ALE.isPaused())
             return;
 
         // Get reading

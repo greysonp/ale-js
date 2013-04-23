@@ -83,8 +83,8 @@
             // Grab the image we added and adjust all of its properties (according to ratio)
             document.getElementById(id.substring(1)).appendChild(ALE.Media.getImage(image));
             console.log("RATIO: " + ratio);
-            $(imgId).css('width', $(imgId)[0].width * ratio + 'px')
-                    .css('height', $(imgId)[0].height * ratio + 'px')
+            $(imgId).css('width', $(imgId)[0].naturalWidth * ratio + 'px')
+                    .css('height', $(imgId)[0].naturalHeight * ratio + 'px')
                     .css('position', 'absolute')
                     .css('left', imageX * ratio + 'px')
                     .css('top', imageY * ratio + 'px');
