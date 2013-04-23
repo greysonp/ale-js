@@ -7,10 +7,10 @@ this.createjs = this.createjs || {};
 {
     var FPS_TARGET = ALE.FPS_TARGET = 60;
     var FPS = FPS_TARGET;
+    var paused = false;
 
     ALE.stage = {};
     ALE._camera = {};
-    ALE.paused = false;
 
     ALE.init = function()
     {
@@ -51,9 +51,28 @@ this.createjs = this.createjs || {};
         console.log("ALE.configAccelerometer()");
     }
 
+    ALE.pause = function ()
+    {
+        paused = true;
+        createjs.Ticker.setPaused(true);
+        //ALE.Route.pauseAll();
+    }
+
+    ALE.resume = function ()
+    {
+        paused = false;
+        createjs.Ticker.setPaused(false);
+        //ALE.Route.playAll();
+    }
+
+    ALE.isPaused = function ()
+    {
+        return paused;
+    }
+
     ALE.tick = function (e)
     {
-        if (ALE.paused)
+        if (paused)
             return;
 
         box2d.world.Step(1 / FPS_TARGET, 3, 3);

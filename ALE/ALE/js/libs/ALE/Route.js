@@ -2,7 +2,9 @@
 
 (function ()
 {
-    var Route = Class.design('ALE.Route',
+    
+
+    var routeObj = Class.design('ALE.Route',
     {
         // ===================
         // Constructor
@@ -55,10 +57,9 @@
                 this.target.SetPosition(new box2d.b2Vec2(this.rep.x, this.rep.y));
                 this.index++;
 
-                var tween = createjs.Tween.get(this.rep).to({ x: this.points[this.index].x, y: this.points[this.index].y }, this.tweenTime);
+                var tween = createjs.Tween.get(this.rep, { paused: ALE.isPaused() }).to({ x: this.points[this.index].x, y: this.points[this.index].y }, this.tweenTime);
                 tween.addEventListener("change", function () { t.onUpdate(t); });
                 tween.call(function () { t.onComplete(t); });
-                    
             }
         },
 
@@ -83,7 +84,7 @@
                 t.index++;
             }
 
-            var tween = createjs.Tween.get(t.rep).to({ x: t.points[t.index].x, y: t.points[t.index].y }, t.tweenTime);
+            var tween = createjs.Tween.get(t.rep, { paused: ALE.isPaused() }).to({ x: t.points[t.index].x, y: t.points[t.index].y }, t.tweenTime);
             tween.addEventListener("change", function () { t.onUpdate(t); });
             tween.call(function () { t.onComplete(t); });
         }

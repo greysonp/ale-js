@@ -54,7 +54,7 @@
     popup.run = function (callback)
     {
         // Pause the game
-        ALE.paused = true;
+        ALE.pause();
 
         // If there's text, add it
         if (text)
@@ -122,7 +122,7 @@
         touch = false;
 
         // Unpause the game
-        ALE.paused = false;
+        ALE.resume();
     }
 
     ALE.PopUpScene = popup;
