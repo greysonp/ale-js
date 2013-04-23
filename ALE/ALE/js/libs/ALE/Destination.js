@@ -10,6 +10,7 @@
     dest.onNewLevel = function ()
     {
         dest.arrivals = 0;
+        destinations = new Array();
     }
 
     dest.makeAsStationary = function (x, y, width, height, imgName, capacity, activationScore)

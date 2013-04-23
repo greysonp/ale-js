@@ -25,6 +25,20 @@
         text = message;
         duration = mduration * 1000;
         $(id).css('font-size', fontSize);
+        $(id).css('color', 'rgb(' + red + ',' + green + ',' + blue + ')');
+    }
+
+    popup.showTextAndWait = function (message, mred, mgreen, mblue, fontSize)
+    {
+        red = mred || 255;
+        green = mgreen || 255;
+        blue = mblue || 255;
+        fontSize = fontSize || '2em';
+
+        text = message;
+        touch = true;
+        $(id).css('font-size', fontSize);
+        $(id).css('color', 'rgb(' + red + ',' + green + ',' + blue + ')');
     }
 
     popup.showImageTimed = function (imgName, mduration, x, y)
@@ -46,6 +60,7 @@
         if (text)
             $(id).add('p').text(text);
 
+
         // If there's an image, add it
         if (image)
         {
@@ -64,6 +79,7 @@
                     .css('top', imageY * ratio + 'px');
 
         }
+        $(id).show();
 
         // Run the right routine based on the current properties
         if (touch)
@@ -75,13 +91,17 @@
     function runTouch(callback)
     {
         // TODO: Listen for a touch event here
-        callback();
+        $(document).bind("click", function (e)
+        {
+            $(this).unbind(e);
+            reset();
+            callback();
+        });
     }
 
     function runTime(callback)
     {
         // Show the popup and set the timeout
-        $(id).show();
         setTimeout(function ()
         {
             reset();

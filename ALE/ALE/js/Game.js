@@ -11,6 +11,7 @@ this.Game = this.Game || {};
         ALE.Media.registerImage("mustardball.png");
         ALE.Media.registerImage("red.png");
         ALE.Media.registerImage("msg1.png");
+        ALE.Media.registerImage("redball.png");
 
         ALE.Media.registerSound("hipitch.mp3");
     }
@@ -153,6 +154,24 @@ this.Game = this.Game || {};
 
             // and print a popup to tell the user what's going on...
             ALE.PopUpScene.showTextTimed("A different way\nto use tilt.", 1);
+        }
+
+        else if (whichLevel == 7) 
+        {
+            // configure a basic level, just like the start of level 2:
+            ALE.Level.configure(460, 320, 0, 0);
+            ALE.Level.enableTilt(10, 10);
+            ALE.Obstacle.drawBoundingBox(0, 0, 460, 320, "red.png", 1, .3, 1);
+            var h = ALE.Hero.makeAsMoveable(40, 70, 30, 30, "greenball.png", 0, 0, 0);
+            h.setMoveByTilting();
+            ALE.Destination.makeAsStationary(290, 60, 10, 10, "mustardball.png", 1, 0);
+            ALE.Level.setVictoryDestination(1);
+
+            // draw an enemy:
+            ALE.Enemy.makeAsStationary(40, 250, 20, 20, "redball.png", 1.0, 0.3, 0.6);
+
+            // display a message that stays until it is pressed
+            ALE.PopUpScene.showTextAndWait("Avoid the enemy and\nreach the destination");
         }
 
     }
