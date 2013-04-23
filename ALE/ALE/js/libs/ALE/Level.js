@@ -30,10 +30,10 @@ this.box2d = this.box2d || {};
     var physics = {};
     level.accelEntities = new Array();
 
-    var backgroundYouWon = "";
-    var backgroundYouLost = "";
-    var textYouWon = "";
-    var textYouLost = "";
+    level.backgroundYouWon = "";
+    level.backgroundYouLost = "";
+    level.textYouWon = "";
+    level.textYouLost = "";
 
     var gameOver = false;
 
@@ -44,12 +44,12 @@ this.box2d = this.box2d || {};
 
     level.setWinText = function (text)
     {
-        textYouWon = text;
+        level.textYouWon = text;
     }
 
     level.setLoseText = function (text)
     {
-        textYouLost = text;
+        level.textYouLost = text;
     }
 
     level.setWinSound = function (soundName)
@@ -154,8 +154,8 @@ this.box2d = this.box2d || {};
         level.setVictoryDestination(1);
         //ALE._camera.setZoomFactorDirect(1);
 
-        textYouWon = "Next Level";
-        textYouLost = "Try Again";
+        level.textYouWon = "Next Level";
+        level.textYouLost = "Try Again";
 
         winSound = null;
         loseSound = null;

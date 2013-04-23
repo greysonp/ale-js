@@ -9,9 +9,14 @@
     var heroes = new Array();
     var lastHero = {};
 
+    var heroesDestroyed = 0;
+    var heroesCreated = 0;
+
     hero.onNewLevel = function ()
     {
-        console.log("ALE.Hero.onNewLevel()");
+        heroesCreated = 0;
+        heroesDestroyed = 0;
+        heroes = new Array();
     }
 
     hero.makeAsMoveable = function (x, y, width, height, imgName, density, elasticity, friction)
@@ -40,8 +45,18 @@
             // ===================
             initialize: function (x, y, width, height, imgName, density, elasticity, friction)
             {
-                console.log("Hero: " + imgName);
                 _Hero.Super.call(this, x, y, width, height, imgName, ALE.PhysicsSprite.TYPE_HERO);
+                // ===================
+                // Instance Variables
+                // ===================
+                this.crawling = false;
+                this.invincible = false;
+                this.strength = 0;
+
+                // ===================
+                // Instantiation
+                // ===================
+                heroesCreated++;
             },
 
             // ===================
@@ -49,9 +64,51 @@
             // ===================
             onCollide: function (other)
             {
+                if (other.myType == ALE.PhysicsSprite.TYPE_ENEMY)
+                {
+                    this.onCollideWithEnemy(other);
+                }
+
                 if (other.myType == ALE.PhysicsSprite.TYPE_DESTINATION)
                 {
                     this.onCollideWithDestination(other);
+                }
+
+                if (other.myType == ALE.PhysicsSprite.TYPE_OBSTACLE)
+                {
+                    this.onCollideWithObstacle(other);
+                }
+            },
+
+            onCollideWithEnemy: function(e)
+            {
+                // Can we defeat it via invincibility?
+                if (!e.alwaysDoesDamage && (this.invincible))
+                {
+                    // do stuff for invincibility
+                }
+                // defeat by crawling
+                else if (this.crawling && e.removeByCrawl)
+                {
+                    // kill enemy
+                }
+                // when we can't defeat it by losing strength
+                else if (e.damage >= this.strength)
+                {
+                    this.vanish(false);
+                    this.sprite.body.SetActive(false);
+                    heroesDestroyed++;
+                    if (heroesDestroyed == heroesCreated)
+                    {
+                        var msg = e.onDefeatHeroText ? e.onDefeatHeroText : ALE.Level.textYouLost;
+                        console.log("MESSAGE: " + msg);
+                        ALE.MenuManager.loseLevel(msg);
+                    }
+                }
+                // when we can defeat it by losing strength
+                else
+                {
+
                 }
             },
 
@@ -77,6 +134,11 @@
                         ALE.MenuManager.winLevel();
                     }
                 }
+            },
+
+            onCollideWithObstacle: function (o)
+            {
+                console.log("Collided with Obstacle!");
             }
         })
     })();

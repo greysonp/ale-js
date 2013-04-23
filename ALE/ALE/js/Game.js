@@ -173,7 +173,6 @@ this.Game = this.Game || {};
             // display a message that stays until it is pressed
             ALE.PopUpScene.showTextAndWait("Avoid the enemy and\nreach the destination");
         }
-
     }
 
 

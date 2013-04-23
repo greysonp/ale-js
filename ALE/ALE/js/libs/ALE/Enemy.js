@@ -14,6 +14,18 @@
         console.log("ALE.Enemy.onNewLevel()");
     }
 
+    enemy.checkWinByDefeatEnemies = function()
+    {
+        if (ALE.Level.victoryType == ALE.Level.VICTORY.ENEMYCOUNT)
+        {
+            if (ALE.Level.victoryVal == -1)
+                return enemy.enemiesDefeated == enemy.enemiesCreated;
+            else
+                return enemy.enemiesDefeated >= Level.victoryVal;
+        }
+        return false;
+    }
+
     enemy.makeAsMovable = function (x, y, width, height, imgName, density, elasticity, friction)
     {
         console.log("ALE.Enemy.makeAsMovable()");
@@ -47,7 +59,7 @@
                 // Instance Variables
                 // ===================
                 this.isStationary = false;
-                this.onDefeatHeroText = "";
+                this.onDefeatHeroText = null;
                 this.reproductions = 0;
                 this.reproduceDuration = 0;
                 this.reproduceSpawn = 0;

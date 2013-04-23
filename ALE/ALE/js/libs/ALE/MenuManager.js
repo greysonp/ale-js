@@ -81,6 +81,19 @@
 
     }
 
+    mm.loseLevel = function (message)
+    {
+        $('#content').empty();
+        $('#content').append('<div class="content-center"><h1><a>' + message + '</a></h1></div>');
+        $('h1').click(function (e)
+        {
+            $('#content').load('game.html', function ()
+            {
+                ALE.setup(_currLevel);
+            });
+        });
+    }
+
     // We can initialize the MenuManager right away
     init();
     ALE.MenuManager = mm;
