@@ -187,13 +187,14 @@ this.box2d = this.box2d || {};
 
         setRotationSpeed: function (duration)
         {
-            this.sprite.rotationSpeed = (2 * Math.PI) / duration;
+            this.sprite.rotationSpeed = ((2 * Math.PI) / duration) / ALE.FPS_TARGET;
         },
 
         tick: function(e)
         {
             // Note: 'this' refers to 'this.sprite'
             var rotSpeed = this.rotationSpeed || 0;
+
             this.body.SetAngle(this.body.GetAngle() + rotSpeed);
 
             // Set texture position
