@@ -8,11 +8,16 @@
 
     config.init = function (callback)
     {
-        $.get("manifest.json", function (data)
+		
+		
+		console.log("starting get");
+        var t = $.get("manifest.json", {}, function (data)
         {
+			console.log("finished get");
             obj = eval('(' + data + ')');
             callback();
-        });
+        }, "text");
+		t.fail(function(m) { console.log("failed: "+ m); });
     }
 
     config.getCameraHeight = function ()

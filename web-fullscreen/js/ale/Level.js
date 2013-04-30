@@ -254,6 +254,15 @@ this.box2d = this.box2d || {};
     {
         if (accelInit) return;
 
+        if (typeof Windows !== 'undefined')
+        {
+            initAccelWin8();
+        }
+
+    }
+
+    function initAccelWin8()
+    {
         accelerometer = Windows.Devices.Sensors.Accelerometer.getDefault();
         if (accelerometer)
         {
@@ -270,6 +279,7 @@ this.box2d = this.box2d || {};
             console.error("No accelerometer found.");
         }
     }
+
 
     function onAccelerationChanged(e)
     {
