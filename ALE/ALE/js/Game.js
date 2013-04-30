@@ -250,7 +250,7 @@ this.Game = this.Game || {};
             // configure some sounds
             ALE.Level.setWinSound("winsound.mp3");
             ALE.Level.setLoseSound("losesound.mp3");
-            //ALE.Level.setMusic("tune.mp3");
+            ALE.Level.setMusic("tune.mp3");
 
             // custom text for when the level is lost
             ALE.Level.setLoseText("Better luck next time...");
