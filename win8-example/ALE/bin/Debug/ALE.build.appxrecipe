@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>WIN8PRORTMDEV</Machine>
+    <WindowsUser>Greyson</WindowsUser>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\dev\visual_studio\ale-js\ALE\ALE\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\back.png">
+      <PackagePath>ale-js\assets\back.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\blueball.png">
+      <PackagePath>ale-js\assets\blueball.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\colorstar.png">
+      <PackagePath>ale-js\assets\colorstar.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\flystar.png">
+      <PackagePath>ale-js\assets\flystar.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\front.png">
+      <PackagePath>ale-js\assets\front.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\greenball.png">
+      <PackagePath>ale-js\assets\greenball.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\greyball.png">
+      <PackagePath>ale-js\assets\greyball.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\invis.png">
+      <PackagePath>ale-js\assets\invis.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\mid.png">
+      <PackagePath>ale-js\assets\mid.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\msg1.png">
+      <PackagePath>ale-js\assets\msg1.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\msg2.png">
+      <PackagePath>ale-js\assets\msg2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\mustardball.png">
+      <PackagePath>ale-js\assets\mustardball.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\purpleball.png">
+      <PackagePath>ale-js\assets\purpleball.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\red.png">
+      <PackagePath>ale-js\assets\red.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\redball.png">
+      <PackagePath>ale-js\assets\redball.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\splash.png">
+      <PackagePath>ale-js\assets\splash.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\starburst.png">
+      <PackagePath>ale-js\assets\starburst.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\stars.png">
+      <PackagePath>ale-js\assets\stars.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\images\logo.png">
+      <PackagePath>images\logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\images\smalllogo.png">
+      <PackagePath>images\smalllogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\images\splashscreen.png">
+      <PackagePath>images\splashscreen.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\images\storelogo.png">
+      <PackagePath>images\storelogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\fwapfwap.mp3">
+      <PackagePath>ale-js\assets\fwapfwap.mp3</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\hipitch.mp3">
+      <PackagePath>ale-js\assets\hipitch.mp3</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\losesound.mp3">
+      <PackagePath>ale-js\assets\losesound.mp3</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\lowpitch.mp3">
+      <PackagePath>ale-js\assets\lowpitch.mp3</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\slowdown.mp3">
+      <PackagePath>ale-js\assets\slowdown.mp3</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\tune.mp3">
+      <PackagePath>ale-js\assets\tune.mp3</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\winsound.mp3">
+      <PackagePath>ale-js\assets\winsound.mp3</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\woowoowoo.mp3">
+      <PackagePath>ale-js\assets\woowoowoo.mp3</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\assets\shape.svg">
+      <PackagePath>ale-js\assets\shape.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\css\ale-win8.css">
+      <PackagePath>ale-js\css\ale-win8.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\css\ale.css">
+      <PackagePath>ale-js\css\ale.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\index.html">
+      <PackagePath>ale-js\index.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\html\credits.html">
+      <PackagePath>ale-js\html\credits.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\html\game.html">
+      <PackagePath>ale-js\html\game.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\html\instructions.html">
+      <PackagePath>ale-js\html\instructions.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\html\level_select.html">
+      <PackagePath>ale-js\html\level_select.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\html\main_menu.html">
+      <PackagePath>ale-js\html\main_menu.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\Game.js">
+      <PackagePath>ale-js\Game.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\ale-init.js">
+      <PackagePath>ale-js\js\ale\ale-init.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\ALE.js">
+      <PackagePath>ale-js\js\ale\ALE.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\Ball.js">
+      <PackagePath>ale-js\js\ale\Ball.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\Camera.js">
+      <PackagePath>ale-js\js\ale\Camera.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\Configuration.js">
+      <PackagePath>ale-js\js\ale\Configuration.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\Controls.js">
+      <PackagePath>ale-js\js\ale\Controls.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\Destination.js">
+      <PackagePath>ale-js\js\ale\Destination.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\Enemy.js">
+      <PackagePath>ale-js\js\ale\Enemy.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\Goodie.js">
+      <PackagePath>ale-js\js\ale\Goodie.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\Hero.js">
+      <PackagePath>ale-js\js\ale\Hero.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\Level.js">
+      <PackagePath>ale-js\js\ale\Level.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\Media.js">
+      <PackagePath>ale-js\js\ale\Media.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\MenuManager.js">
+      <PackagePath>ale-js\js\ale\MenuManager.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\Obstacle.js">
+      <PackagePath>ale-js\js\ale\Obstacle.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\PhysicsSprite.js">
+      <PackagePath>ale-js\js\ale\PhysicsSprite.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\PopUpScene.js">
+      <PackagePath>ale-js\js\ale\PopUpScene.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\Route.js">
+      <PackagePath>ale-js\js\ale\Route.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\ale\Scene.js">
+      <PackagePath>ale-js\js\ale\Scene.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\box2d\box2d.js">
+      <PackagePath>ale-js\js\box2d\box2d.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\box2d\box2dweb.js">
+      <PackagePath>ale-js\js\box2d\box2dweb.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\class.min.js">
+      <PackagePath>ale-js\js\class.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\createjs\easeljs-0.6.0.min.js">
+      <PackagePath>ale-js\js\createjs\easeljs-0.6.0.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\createjs\preloadjs-0.3.0.min.js">
+      <PackagePath>ale-js\js\createjs\preloadjs-0.3.0.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\createjs\soundjs-0.4.0.min.js">
+      <PackagePath>ale-js\js\createjs\soundjs-0.4.0.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\createjs\tweenjs-0.4.0.min.js">
+      <PackagePath>ale-js\js\createjs\tweenjs-0.4.0.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\js\jquery-1.8.0-win8.min.js">
+      <PackagePath>ale-js\js\jquery-1.8.0-win8.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\js\default.js">
+      <PackagePath>js\default.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\ale-js\manifest.json">
+      <PackagePath>ale-js\manifest.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\dev\visual_studio\ale-js\ALE\ALE\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Microsoft.WinJS.1.0\1.0\">
+      <Name>Microsoft.WinJS.1.0</Name>
+      <Version>1.0.9200.20602</Version>
+      <Architecture>Neutral</Architecture>
+      <FrameworkIdentity>Name=Microsoft.WinJS.1.0, MinVersion=1.0.9200.20602</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Microsoft.WinJS.1.0\1.0\Microsoft.WinJS.1.0.appx</AppxLocation>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>

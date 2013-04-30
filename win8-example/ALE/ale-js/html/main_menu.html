@@ -1,0 +1,68 @@
+﻿
+
+<!-- Lib references -->
+<script src="js/class.min.js"></script>
+<script src="js/createjs/soundjs-0.4.0.min.js"></script>
+<script src="js/createjs/easeljs-0.6.0.min.js"></script>
+<script src="js/createjs/preloadjs-0.3.0.min.js"></script>
+<script src="js/createjs/tweenjs-0.4.0.min.js"></script>
+<script src="js/box2d/box2dweb.js"></script>
+<script src="js/box2d/box2d.js"></script>
+<script src="js/jquery-1.8.0-win8.min.js"></script>
+
+<!-- ALE references -->
+<script src="js/ALE/ALE.js"></script>
+<script src="js/ALE/PhysicsSprite.js"></script>
+<script src="js/ALE/Obstacle.js"></script>
+<script src="js/ALE/Media.js"></script>
+<script src="js/ALE/Level.js"></script>
+<script src="js/ALE/Enemy.js"></script>
+<script src="js/ALE/Goodie.js"></script>
+<script src="js/ALE/Controls.js"></script>
+<script src="js/ALE/Scene.js"></script>
+<script src="js/ALE/Camera.js"></script>
+<script src="js/ALE/Destination.js"></script>
+<script src="js/ALE/Hero.js"></script>
+<script src="js/ALE/Configuration.js"></script>
+<script src="js/ALE/PopUpScene.js"></script>
+<script src="js/ALE/Route.js"></script>
+
+<!-- Game references -->
+<script src="Game.js"></script>
+
+<div id="content">
+    <div class="content-center">
+        <h1 id="text-title"></h1>
+        <h2><a id="text-play" href="html/level_select.html"></a></h2>
+        <h2><a id="text-instructions" href="html/instructions.html"></a></h2>
+        <h2><a href="html/credits.html">credits</a></h2>
+    </div>
+</div>
+
+<script type="text/javascript">
+    ALE.Configuration.init(function ()
+    {
+        // Set background image
+        $('#ale').css('background-image', 'url(' + ALE.Configuration.getSplashBackground() + ')');
+
+        // Set title text
+        $('#text-title').text(ALE.Configuration.getTitle());
+
+        // Set play text
+        $('#text-play').text(ALE.Configuration.getPlayButtonText());
+
+        // Set instructions text
+        $('#text-instructions').text(ALE.Configuration.getHelpButtonText());
+
+        // Do our one-time initialization of ALE
+        ALE.init();
+    });
+
+    $('#ale a').click(function (e)
+    {
+        e.preventDefault();
+        var href = $(this).attr('href');
+        $('#content').load(href);
+        $('#ale').css('background-image', 'none');
+    });
+</script>

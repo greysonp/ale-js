@@ -1,0 +1,14 @@
+﻿{
+	game_camera_height: 768,
+	game_camera_width: 1366,
+	game_orientation: "landscape",
+	game_levels: 10,
+    game_help_scenes: 2,
+    game_title: "ALE Demo Levels",
+    play_button_text: "Play",
+    help_button_text: "Help",
+    quit_button_text: "Quit",
+    main_screen_background: "splash.png",
+    developer_unlock: true,
+    enable_vibration: true
+}
