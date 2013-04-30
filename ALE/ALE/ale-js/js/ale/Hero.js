@@ -138,7 +138,7 @@
 
             onCollideWithObstacle: function (o)
             {
-                console.log("Collided with Obstacle!");
+                //console.log("Collided with Obstacle!");
             }
         })
     })();

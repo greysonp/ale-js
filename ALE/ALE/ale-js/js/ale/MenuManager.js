@@ -43,13 +43,14 @@
 
     function saveUnlocked(value)
     {
-        window.localStorage['unlocked'] = value;
+        window.localStorage[ALE.Configuration.getTitle()] = value;
     }
 
     function getUnlocked()
     {
-        return 10;
-        var unlocked = parseInt(window.localStorage['unlocked']);
+        if (ALE.Configuration.isDeveloperOverride())
+            return ALE.Configuration.getNumLevels();
+        var unlocked = parseInt(window.localStorage[ALE.Configuration.getTitle()]);
         return (unlocked || 1);
     }
 

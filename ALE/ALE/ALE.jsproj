@@ -82,7 +82,7 @@
     <Content Include="ale-js\assets\woowoowoo.mp3" />
     <Content Include="ale-js\css\ale-win8.css" />
     <Content Include="ale-js\css\ale.css" />
-    <Content Include="ale-js\ale.html" />
+    <Content Include="ale-js\index.html" />
     <Content Include="ale-js\Game.js" />
     <Content Include="ale-js\html\credits.html" />
     <Content Include="ale-js\html\game.html" />
