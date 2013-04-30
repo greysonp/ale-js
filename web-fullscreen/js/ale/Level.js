@@ -323,7 +323,7 @@ this.box2d = this.box2d || {};
 
     function onAccelSafari(e)
     {
-        alert("alpha: " + e.alpha + "  beta: " + e.beta + "  gamma: " + e.gamma);
+        onAccel(e.beta, e.gamma);
     }
 
 
