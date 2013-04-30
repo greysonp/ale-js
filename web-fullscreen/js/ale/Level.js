@@ -267,9 +267,11 @@ this.box2d = this.box2d || {};
         if (accelInit) return;
 
         if (typeof Windows !== 'undefined')
-        {
             initAccelWin8();
-        }
+
+        else if (typeof window.ondeviceorientation !== 'undefined')
+            initAccelSafari();
+
 
     }
 
@@ -283,7 +285,7 @@ this.box2d = this.box2d || {};
             var reportInterval = minReportingInterval > 16 ? minReportingInterval : 16;
             accelerometer.reportInterval = reportInterval;
             getReadingInterval = reportInterval * 2;
-            accelerometer.addEventListener("readingchanged", onAccelerationChanged);
+            accelerometer.addEventListener("readingchanged", onAccelWin8);
             accelInit = true;
         }
         else
@@ -292,8 +294,7 @@ this.box2d = this.box2d || {};
         }
     }
 
-
-    function onAccelerationChanged(e)
+    function onAccelWin8(e)
     {
         // Don't do anything if the game is paused
         if (ALE.isPaused())
@@ -312,6 +313,22 @@ this.box2d = this.box2d || {};
         gy = Math.min(gy, _yGravityMax);
         gy = Math.max(gy, -_yGravityMax);
 
+        onAccel(gx, gy);
+    }
+
+    function initAccelSafari()
+    {
+        window.ondeviceorientation = onAccelSafari;
+    }
+
+    function onAccelSafari(e)
+    {
+        alert("alpha: " + e.alpha + "  beta: " + e.beta + "  gamma: " + e.gamma);
+    }
+
+
+    function onAccel(gx, gy)
+    {
         // we're allowed to just set velocity
         if (tiltVelocityOverride)
         {
@@ -361,8 +378,8 @@ this.box2d = this.box2d || {};
                 }
             }
         }
-
     }
+
 
 
 })(this.ALE);
