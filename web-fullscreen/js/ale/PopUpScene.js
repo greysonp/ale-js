@@ -108,6 +108,16 @@
             reset();
             callback();
         });
+
+        if (typeof document.touchstart !== 'undefined')
+        {
+            document.touchstart = function()
+            {
+                document.touchstart = function() {};
+                reset();
+                callback();
+            }
+        }
     }
 
     function runTime(callback)
