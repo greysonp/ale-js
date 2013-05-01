@@ -71,10 +71,11 @@
     position: fixed;
     top: -20%;
     left: 0px;
-    background-color: black;
-    opacity: 0.75;
+    background-color: #333;
     z-index: 9999999;
     display: table;
+    border-spacing: 20px;
+
 }
 
 #menu-panel-inner {
@@ -82,6 +83,18 @@
     height: 100%;
     position: relative;
     display: table-row;
+}
+
+#menu-panel-inner .menu-panel-block {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #444;
+    width: 20%;
+}
+
+#menu-panel-inner .menu-panel-block:hover {
+    background-color: #555;
 }
 
 #menu-panel-tag {
@@ -92,16 +105,10 @@
     right: 0px;
     height: 25%;
     width: 5%;
-    background-color: black;
+    background-color: #333;
 }
 
-.menu-panel-block {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-    background-color: #1e1e1e;
-    margin: 10px;
-}
+
 
 h1 {
     margin-bottom: 0.5em;
