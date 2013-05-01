@@ -115,7 +115,8 @@
     <Content Include="ale-js\js\createjs\preloadjs-0.3.0.min.js" />
     <Content Include="ale-js\js\createjs\soundjs-0.4.0.min.js" />
     <Content Include="ale-js\js\createjs\tweenjs-0.4.0.min.js" />
-    <Content Include="ale-js\js\jquery-1.8.0-win8.min.js" />
+    <Content Include="ale-js\js\jquery-win8.min.js" />
+    <Content Include="ale-js\js\jquery.min.js" />
     <Content Include="ale-js\manifest.json" />
     <Content Include="images\logo.png" />
     <Content Include="images\smalllogo.png" />

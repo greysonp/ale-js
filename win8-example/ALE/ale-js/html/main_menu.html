@@ -8,24 +8,23 @@
 <script src="js/createjs/tweenjs-0.4.0.min.js"></script>
 <script src="js/box2d/box2dweb.js"></script>
 <script src="js/box2d/box2d.js"></script>
-<script src="js/jquery.min.js"></script>
 
 <!-- ALE references -->
-<script src="js/ALE/ALE.js"></script>
-<script src="js/ALE/PhysicsSprite.js"></script>
-<script src="js/ALE/Obstacle.js"></script>
-<script src="js/ALE/Media.js"></script>
-<script src="js/ALE/Level.js"></script>
-<script src="js/ALE/Enemy.js"></script>
-<script src="js/ALE/Goodie.js"></script>
-<script src="js/ALE/Controls.js"></script>
-<script src="js/ALE/Scene.js"></script>
-<script src="js/ALE/Camera.js"></script>
-<script src="js/ALE/Destination.js"></script>
-<script src="js/ALE/Hero.js"></script>
-<script src="js/ALE/Configuration.js"></script>
-<script src="js/ALE/PopUpScene.js"></script>
-<script src="js/ALE/Route.js"></script>
+<script src="js/ale/ALE.js"></script>
+<script src="js/ale/PhysicsSprite.js"></script>
+<script src="js/ale/Obstacle.js"></script>
+<script src="js/ale/Media.js"></script>
+<script src="js/ale/Level.js"></script>
+<script src="js/ale/Enemy.js"></script>
+<script src="js/ale/Goodie.js"></script>
+<script src="js/ale/Controls.js"></script>
+<script src="js/ale/Scene.js"></script>
+<script src="js/ale/Camera.js"></script>
+<script src="js/ale/Destination.js"></script>
+<script src="js/ale/Hero.js"></script>
+<script src="js/ale/Configuration.js"></script>
+<script src="js/ale/PopUpScene.js"></script>
+<script src="js/ale/Route.js"></script>
 
 <!-- Game references -->
 <script src="Game.js"></script>
@@ -40,8 +39,11 @@
 </div>
 
 <script type="text/javascript">
+console.log("1");
     ALE.Configuration.init(function ()
     {
+		console.log("2");
+	
         // Set background image
         $('#ale').css('background-image', 'url(' + ALE.Configuration.getSplashBackground() + ')');
 

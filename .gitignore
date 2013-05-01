@@ -1,8 +1,6 @@
-ALE/ALE/bin/
-ALE/ALE/bld/
-WP8Test/HTML5AppTest/Bin/
-Win8Test/WebTest/bin/
-Win8Test/WebTest/bld/
+wp8-example/HTML5AppTest/Bin/
+win8-example/ALE/bin/
+win8-example/ALE/bld/
 web-fullscreen/.idea/
 web-embedded/.idea/
 .idea/

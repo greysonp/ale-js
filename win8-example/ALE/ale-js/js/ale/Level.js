@@ -104,17 +104,8 @@ this.box2d = this.box2d || {};
         c.width = width;
         c.height = height;
 
-        // Find what pixel size the width should be using proportions because
-        // I can't figure out how to style the width to scale appropriately
-        var ratio = window.screen.height / height;
-        var pixWidth = c.width * ratio;
-        console.log("pixWidth: " + pixWidth);
-
-        // Now get the percentage to eliminate the possibility of affecting the actual canvas width
-        //
-        // pixWidth/screenWidth = x/100
-        var percentage = (pixWidth * 100) / window.screen.width;
-        $('#canvas').css('width', percentage + '%');
+        scaleCanvasToWindow();
+        $(window).resize(scaleCanvasToWindow);
 
         // Initializing scene
         level.current = new namespace.Scene();
@@ -164,6 +155,27 @@ this.box2d = this.box2d || {};
         vertBackground = null;
         backgroundYouWon = null;
         backgroundYouLost = null;
+    }
+
+    function scaleCanvasToWindow()
+    {
+        var c = document.getElementById('canvas');
+
+        // Find what pixel size the width should be using proportions because
+        // I can't figure out how to style the width to scale appropriately
+        var ratio = $('body').innerHeight() / c.height;
+//        alert("c.width: " + c.width + "  ratio: " + ratio);
+        var pixWidth = c.width * ratio;
+//        alert("pixWidth: " + pixWidth);
+
+        // Now get the percentage to eliminate the possibility of affecting the actual canvas width
+        //
+        // pixWidth/screenWidth = x/100
+        var percentage = (pixWidth * 100) / $('body').innerWidth();
+        $('#canvas').css('width', pixWidth);
+
+//        alert("width: " + $('body').innerWidth() + "  height: " + $('body').innerHeight());
+//        alert("pixWidth: " + pixWidth + "  pixHeight: " + $('#canvas').height());
     }
 
     function initPhysics(initXGravity, initYGravity)
@@ -254,6 +266,17 @@ this.box2d = this.box2d || {};
     {
         if (accelInit) return;
 
+        if (typeof Windows !== 'undefined')
+            initAccelWin8();
+
+        else if (typeof window.ondeviceorientation !== 'undefined')
+            initAccelSafari();
+
+
+    }
+
+    function initAccelWin8()
+    {
         accelerometer = Windows.Devices.Sensors.Accelerometer.getDefault();
         if (accelerometer)
         {
@@ -262,7 +285,7 @@ this.box2d = this.box2d || {};
             var reportInterval = minReportingInterval > 16 ? minReportingInterval : 16;
             accelerometer.reportInterval = reportInterval;
             getReadingInterval = reportInterval * 2;
-            accelerometer.addEventListener("readingchanged", onAccelerationChanged);
+            accelerometer.addEventListener("readingchanged", onAccelWin8);
             accelInit = true;
         }
         else
@@ -271,7 +294,7 @@ this.box2d = this.box2d || {};
         }
     }
 
-    function onAccelerationChanged(e)
+    function onAccelWin8(e)
     {
         // Don't do anything if the game is paused
         if (ALE.isPaused())
@@ -290,6 +313,22 @@ this.box2d = this.box2d || {};
         gy = Math.min(gy, _yGravityMax);
         gy = Math.max(gy, -_yGravityMax);
 
+        onAccel(gx, gy);
+    }
+
+    function initAccelSafari()
+    {
+        window.ondeviceorientation = onAccelSafari;
+    }
+
+    function onAccelSafari(e)
+    {
+        onAccel(-e.beta/2, e.gamma/2);
+    }
+
+
+    function onAccel(gx, gy)
+    {
         // we're allowed to just set velocity
         if (tiltVelocityOverride)
         {
@@ -339,8 +378,8 @@ this.box2d = this.box2d || {};
                 }
             }
         }
-
     }
+
 
 
 })(this.ALE);

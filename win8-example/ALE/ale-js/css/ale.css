@@ -9,6 +9,12 @@
     font-weight: bold;
     color: white;
 }
+
+#ale a
+{
+    text-decoration: none;
+}
+
  
 #content{
     margin: 0px;

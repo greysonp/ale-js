@@ -102,12 +102,22 @@
     function runTouch(callback)
     {
         // TODO: Listen for a touch event here
-        $(document).bind("click", function (e)
+        $('body').bind("click", function (e)
         {
             $(this).unbind(e);
             reset();
             callback();
         });
+
+        if (typeof document.touchstart !== 'undefined')
+        {
+            document.touchstart = function()
+            {
+                document.touchstart = function() {};
+                reset();
+                callback();
+            }
+        }
     }
 
     function runTime(callback)
