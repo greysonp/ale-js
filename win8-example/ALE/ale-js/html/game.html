@@ -1,6 +1,36 @@
 ﻿<div class="content-center">
+    <div id="menu-panel">
+        <div id="menu-panel-inner">
+            <div class="menu-panel-block">
+                <h2><a href="index.html">back</a></h2>
+            </div>
+            <div class="menu-panel-block">
+                <h2>test1</h2>
+            </div>
+            <div class="menu-panel-block">
+                <h2>test2</h2>
+            </div>
+
+            <div id="menu-panel-tag"></div>
+        </div>
+    </div>
     <canvas id="canvas" width="1366" height="768"></canvas>
     <div id="popup-scene-wrapper">
         <div id="popup-scene"></div>
     </div>
+
+    <script type="text/javascript">
+        var $panel = $('#menu-panel');
+        var $tag = $('#menu-panel-tag');
+        $tag.bind("click", function ()
+        {
+            // Get the top property as an integer (we have to chop off the 'px' first)
+            var top = parseInt($panel.css('top').substring(0, $panel.css('top').length - 2));
+
+            if (top == 0)
+                $panel.animate({ 'top': '-20 %' }, 300);
+            else
+                $panel.animate({ 'top': '0%' }, 300);
+        });
+    </script>
 </div>

@@ -64,6 +64,45 @@
     opacity: 0.3;
 }
 
+#menu-panel {
+    width: 100%;
+    margin: 0px;
+    height: 20%;
+    position: fixed;
+    top: -20%;
+    left: 0px;
+    background-color: black;
+    opacity: 0.75;
+    z-index: 9999999;
+    display: table;
+}
+
+#menu-panel-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: table-row;
+}
+
+#menu-panel-tag {
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+    top: 100%;
+    right: 0px;
+    height: 25%;
+    width: 5%;
+    background-color: black;
+}
+
+.menu-panel-block {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #1e1e1e;
+    margin: 10px;
+}
+
 h1 {
     margin-bottom: 0.5em;
     font-size: 5em;
