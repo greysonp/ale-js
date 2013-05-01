@@ -8,7 +8,7 @@
 
     function init()
     {
-        $('#level-holder').height($(window).height() - $('h1').height() - 50);
+        $('#level-holder').height($(window).height() - $('h1').height() - $('h2').height() - 50);
 
         for (var i = 1; i <= ALE.Configuration.getNumLevels() ; i++)
         {
